@@ -4,11 +4,11 @@ import db from "../infra/db.js" ;
 
 
 // Essa classe encapsula o acesso ao Banco de Dados. Todos os métodos abaixos são estáticos. Isso quer dizer que não precisamos instanciar a classe para usá-los e serão chamados pela classe coletadorController... Alguns vão dar retorno e para outros, isso não será necessário
-class ClienteDAO {
+class EmpresaDAO {
 
   // GET  --  Função ALL - Retorna todas as linhas. No callback existe o argumento ROWS
   static listar() {
-    const query = "SELECT * FROM Cliente";
+    const query = "SELECT * FROM empresa";
     return new Promise((resolve, reject) => {
       db.all(query, (err, rows) => {
         if (err) {
@@ -21,7 +21,7 @@ class ClienteDAO {
 
   // GET  --  
   static buscarPorID(id) {
-    const query = "SELECT * FROM Cliente WHERE id = ?";
+    const query = "SELECT * FROM empresa WHERE id = ?";
     return new Promise((resolve, reject) => {
       db.get(query, [id], (err, row) => {
         if (err) {
@@ -34,38 +34,38 @@ class ClienteDAO {
 
 
   // POST
-  static inserir(cliente) {
-    const query = "INSERT INTO Cliente (username, email, password, telefone, CEP) VALUES(?, ?, ?, ?, ?)";
+  static inserir(empresa) {
+    const query = "INSERT INTO empresa (nome, telefone, CNPJ, email, password) VALUES(?, ?, ?, ?, ?)";
     return new Promise((resolve, reject) => {
-      db.run(query, [cliente.username, cliente.email, cliente.password, cliente.telefone, cliente.cep], (err) => {
+      db.run(query, [empresa.nome, empresa.telefone, empresa.cnpj, empresa.email, empresa.password], (err) => {
         if (err) {
           reject({
-            mensagem: "Erro ao inserir o cliente",
+            mensagem: "Erro ao inserir o empresa",
             error: err,
           });
         }
-        resolve(cliente);
+        resolve(empresa);
       });
     });
   }
 
   // PUT  --  
-  static atualizar(id, cliente) {
+  static atualizar(id, empresa) {
     const query =
-      "UPDATE Cliente SET username = ?, email = ?, password = ?, telefone = ?, CEP = ? WHERE id = ?";
+      "UPDATE empresa SET nome = ?, telefone = ?, CNPJ = ?, email = ?, password = ? WHERE id = ?";
     return new Promise((resolve, reject) => {
       db.run(
         query,
-        [cliente.username, cliente.email, cliente.password, cliente.telefone, cliente.cep, id],
+        [empresa.nome, empresa.telefone, empresa.cnpj, empresa.email, empresa.password, id],
         (err) => {
           if (err) {
             reject({
-              mensagem: "Erro ao atualizar o cliente",
+              mensagem: "Erro ao atualizar o empresa",
               erro: err,
             });
           }
           resolve({
-            mensagem: "cliente atualizado com sucesso"
+            mensagem: "empresa atualizado com sucesso"
           });
         }
       );
@@ -75,16 +75,16 @@ class ClienteDAO {
 
   // DELETE  --  
   static deletar(id) {
-    const query = "DELETE FROM Cliente WHERE id = ?";
+    const query = "DELETE FROM empresa WHERE id = ?";
     return new Promise((resolve, reject) => {
       db.run(query, [id], (err) => {
         if (err) {
           reject({
-            mensagem: "Erro ao deletar o cliente",
+            mensagem: "Erro ao deletar o empresa",
             erro: err,
           });
         }
-        resolve({ mensagem: "Cliente deletado com sucesso", id: id });
+        resolve({ mensagem: "empresa deletado com sucesso", id: id });
       });
     });
   }
@@ -92,4 +92,4 @@ class ClienteDAO {
 
 
 // Exporta a classe
-export default ClienteDAO;
+export default EmpresaDAO;

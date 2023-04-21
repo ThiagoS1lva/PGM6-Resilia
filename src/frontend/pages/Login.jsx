@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import LoginCarousels from '../components/Login/LoginCarousels';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
+import Cliente from '../assets/cliente.png';
+import Empresa from '../assets/empresa.png';
 
 function Login() {
     const [cliente, setCliente] = useState(true);
@@ -20,6 +22,9 @@ function Login() {
                 {cliente ?
                     <div className={styles.containerLogin}>
                         <h1>Login</h1>
+                        <div style={{ marginBottom: '4%' }}>
+                            <img src={Cliente} width='10%' />
+                        </div>
                         <div className={styles.btnCE}>
                             <Button onClick={handleCliente}>Cliente</Button>
                             <Button variant="outline-secondary" onClick={handleEmpresa}>Empresa</Button>
@@ -36,7 +41,7 @@ function Login() {
                             </div>
                             <input type="password" placeholder="Digite sua senha" />
                             <p>Não tem uma conta?</p>
-                            <Link to="/cadastre-se">Cadastre-se</Link>
+                            <Link to="/cadastro">Cadastre-se</Link>
                             <button role='button'>Logar</button>
                         </form>
                     </div> 
@@ -45,6 +50,9 @@ function Login() {
 
                     <div className={styles.containerLogin}>
                         <h1>Login</h1>
+                        <div style={{ marginBottom: '4%' }}>
+                            <img src={Empresa} width='10%' />
+                        </div>
                         <div className={styles.btnCE}>
                             <Button variant="outline-primary" onClick={handleCliente}>Cliente</Button>
                             <Button variant="secondary" onClick={handleEmpresa}>Empresa</Button>
@@ -65,8 +73,6 @@ function Login() {
                             <button role='button'>Logar</button>
                         </form>
                     </div> 
-                    
-                    
                     }
 
 

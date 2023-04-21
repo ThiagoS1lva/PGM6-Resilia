@@ -62,7 +62,6 @@ function Menu() {
             </nav>
             {showMenu && (
                 <>
-                    <div className={styles.glass1}></div>
                     <div className={styles.dropdown}>
                         <div className={styles.dropdownMenu}>
                             <Link to="/" className={styles.link} onClick={toggleMenu}><li>Página Inicial</li></Link>

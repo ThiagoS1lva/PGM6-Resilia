@@ -11,17 +11,17 @@ function LoginCarousels() {
                     className="d-block w-100"
                     src={img1}
                 />
-                <Carousel.Caption>
-                    <h3>First slide label</h3>
-                </Carousel.Caption>
+                <div style={{ textAlign: 'center' }}>
+                    <h4>Faça login ou cadastre-se no nosso site!</h4>
+                </div>
             </Carousel.Item>
             <Carousel.Item>
                 <img
                     className="d-block w-100"
                     src={img2}
                 />
-                <div style={{textAlign:'center'}}>
-                    <h3>Second slide label</h3>
+                <div style={{ textAlign: 'center' }}>
+                    <h4>Ajude a transformar materiais orgânicos em recursos valiosos para nosso planeta!</h4>
                 </div>
             </Carousel.Item>
             <Carousel.Item>
@@ -30,9 +30,9 @@ function LoginCarousels() {
                     src={img3}
                 />
 
-                <Carousel.Caption>
-                    <h3>Third slide label</h3>
-                </Carousel.Caption>
+                <div style={{ textAlign: 'center' }}>
+                    <h4>Aumente seus lucros com a venda de materiais recicláveis!</h4>
+                </div>
             </Carousel.Item>
         </Carousel>
     )

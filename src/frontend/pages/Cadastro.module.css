@@ -1,25 +1,25 @@
 .container {
     display: flex;
     justify-content: center;
-    width: 75%;
+    width: 50%;
     margin: 5% auto;
     background-color: #FFF;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.5);
     border-radius: 20px;
 }
 
-.containerLogin {
+.containerCadastro {
     display: flex;
     flex-direction: column;
     margin: 0 auto;
     padding-top: 5%;
-    width: 55%;
+    width: 80%;
     text-align: center;
     border-radius: 20px 0 0 20px;
     background-color: #FFF;
 }
 
-.containerLogin h1 {
+.containerCadastro h1 {
     padding-bottom: 1%;
 }
 
@@ -34,10 +34,6 @@
     text-align: left;
     margin-bottom: 3%;
     font-size: 14px;
-}
-.label {
-    display: flex;
-    justify-content: space-between;
 }
 
 
@@ -95,13 +91,6 @@
     box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
 
-.containerImage {
-    display: flex;
-    width: 45%;
-    margin: 0 auto;
-    background-color: #dddddd;
-    border-radius: 0 20px 20px 0;
-}
 
 .btnCE{
     display: flex;
@@ -114,14 +103,11 @@
 @media (max-width: 768px) { 
     .container {
         flex-direction: column;
+        width: 90%;
     }
-    .containerLogin {
+    .containerCadastro {
         width: 95%;
         border-radius: 20px 20px 0 0;
-    }
-    .containerImage {
-        width: 100%;
-        border-radius: 0 0 20px 20px;
     }
     .btnCE{
         width: 70%;
