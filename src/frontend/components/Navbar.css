@@ -1,0 +1,19 @@
+.transparent {
+    background-color: #94D43F;
+}
+
+.color {
+    background-color: rgb(240, 255, 244);
+}
+
+.teste {
+    padding-top: 1%;
+}
+
+.teste li {
+    color:rgb(240, 255, 244)
+}
+
+.ul {
+    transition: 240ms linear;
+}

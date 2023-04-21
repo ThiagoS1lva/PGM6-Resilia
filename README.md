@@ -1,1 +1,0 @@
-# PGM6-Resilia

@@ -1,0 +1,37 @@
+/*Menu*/
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+* {
+    font-family: 'Lato', sans-serif;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    position: fixed;
+    width: 100%;
+    transition: all 1s ease-in-out;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    width: 80%;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 2%;
+}
+
+nav ul li {
+    padding: 10px;
+    color: rgb(49, 156, 0);
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 7px;
+    transition: all ease-in-out .2s;
+}
+
+nav ul li:hover {
+    background-color: #20E392;
+    color: black;
+}
