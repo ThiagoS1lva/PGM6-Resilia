@@ -4,9 +4,11 @@ import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png'
 import icone from '../assets/icone_perfil.png'
+import iconMenu from '../assets/menu.png'
 
 function Menu() {
     const [isTransparent, setTransparent] = useState(false);
+    const [showMenu, setShowMenu] = useState(false);
 
     //Scroll
     useEffect(() => {
@@ -24,23 +26,57 @@ function Menu() {
         }
     }
 
+    const toggleMenu = () => {
+        setShowMenu(!showMenu);
+    }
+
+
     return (
 
         <>
-            <nav className={isTransparent ? "transparent" : "color"}>
+            <nav className={isTransparent ? "transparencia" : "color"}>
                 <div>
-                    <Link to="/"><img className={styles.img_logo} src={logo} width='70px' /></Link>
+                    <Link to="/"><img className={styles.img_logo} src={logo} width='50%' /></Link>
                 </div>
                 <ul className={`ul ${isTransparent ? "teste" : ""}`}>
-                    <Link to="/"><li>Página Inicial</li></Link>
+                    <Link to="/" style={{ textDecoration: 'none' }}><li>Página Inicial</li></Link>
                     <li>Sobre</li>
                     <li>Contato</li>
                     <li>Pontos de coleta</li>
+
                     <li className={styles.img_perfil}><img width='100%' src={icone} /></li>
-                    <Link to="/login"><li>Login / Cadastro</li></Link>
+
+
+                    <Link style={{ textDecoration: 'none' }} to="/login"><li>Login / Cadastro</li></Link>
                 </ul>
             </nav>
+
+            <nav className={styles.menuDrop}>
+                <div>
+                    <Link to="/"><img className={styles.img_drop} src={logo} width='50%' /></Link>
+                </div>
+                <div>
+                    <img onClick={toggleMenu} className={styles.img_menu} src={iconMenu} width='60px' />
+                </div>
+                
+            </nav>
+            {showMenu && (
+                <>
+                    <div className={styles.glass1}></div>
+                    <div className={styles.dropdown}>
+                        <div className={styles.dropdownMenu}>
+                            <Link to="/" className={styles.link} onClick={toggleMenu}><li>Página Inicial</li></Link>
+                            <Link to="/" className={styles.link} onClick={toggleMenu}><li>Sobre</li></Link>
+                            <Link to="/" className={styles.link} onClick={toggleMenu}><li>Contato</li></Link>
+                            <Link to="/" className={styles.link} onClick={toggleMenu}><li>Pontos de coleta</li></Link>
+                            <Link to="/" className={styles.link} onClick={toggleMenu}><li>Perfil</li></Link>
+                            <Link className={styles.link} to="/login" onClick={toggleMenu}><li>Login / Cadastro</li></Link>
+                        </div>
+                    </div>
+                </>
+            )}
             <div className={styles.glass}></div>
+
         </>
     )
 }

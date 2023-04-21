@@ -9,6 +9,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     position: fixed;
+    top: 0;
     width: 100%;
     transition: all 1s ease-in-out;
 }
@@ -17,10 +18,10 @@ nav {
 }
 
 .img_logo {
-    padding-left: 70%;
+    padding-left: 30%;
 }
 .img_perfil {
-    width: 30px;
+    width: 60px;
 }
 
 nav ul {
@@ -46,4 +47,45 @@ nav ul li {
 nav ul li:hover {
     box-shadow: inset 200px 0 0 0 #93d43f8e;
     color: rgb(2, 71, 2);
+}
+
+.menuDrop {
+    display: none;
+}
+
+@media (max-width: 768px) {
+    nav:first-child {
+        display: none;
+    }
+    .menuDrop {
+        display: flex;
+        padding: 4% 5%;
+        background-color: rgb(89, 228, 126);
+        position: fixed;
+        top: 0;
+    }
+    .img_drop {
+        width: 75px;
+    }
+    .glass1 {
+        height: 120px;
+        background-color: rgb(89, 228, 126);
+    }
+    .dropdownMenu {
+        display: flex;
+        position: fixed;
+        width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 4%;
+        background-color: rgb(89, 228, 126);
+    }
+    .link {
+        text-decoration: none;
+        color: black;
+        font-size: 25px;
+        line-height: 50px;
+        font-weight: bold;
+        list-style: none;
+    }
 }
