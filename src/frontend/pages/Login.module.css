@@ -95,12 +95,18 @@
     box-shadow: rgba(20, 70, 32, .2) 0 1px 0 inset;
 }
 
-
-
 .containerImage {
     display: flex;
     width: 45%;
     margin: 0 auto;
-    background-color: #c7c7c7;
+    background-color: #dddddd;
     border-radius: 0 20px 20px 0;
+}
+
+.btnCE{
+    display: flex;
+    justify-content: space-between;
+    width: 35%;
+    margin: 0 auto;
+    margin-bottom: 2%;
 }
