@@ -1,0 +1,14 @@
+/* Footer.css */
+footer {
+    background-color: #222222bd;
+    color: #fff;
+    padding: 1.5em;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+  .elements{
+    display: flex;
+    justify-content: space-around;
+  }
+  
