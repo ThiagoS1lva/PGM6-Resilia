@@ -21,8 +21,11 @@ function Footer() {
         <ul> <h3>Recicla.ai</h3>
           <li><p>Somos uma empresa que conecta pessoas que <br /> reciclam à empresas de reciclagem</p></li>
         </ul>
-        <ul> <h3>Recicla.ai</h3>
-          <li><p>Somos uma empresa que conecta pessoas que <br /> reciclam à empresas de reciclagem</p></li>
+        <ul>
+          
+        <li>Mobilização:</li>
+        <li>Desenvolvido por Humann</li>
+        <p>&copy; 2023 - Recicla ai</p> 
         </ul>
       </div>
     </footer>
