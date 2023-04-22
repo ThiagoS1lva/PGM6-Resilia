@@ -58,7 +58,7 @@
     width: 100%;
     height: 50px;
     border-radius: 5px;
-    margin-bottom: 10%;
+    margin-bottom: 1%;
     padding-left: 3%;
 }
 
@@ -119,6 +119,14 @@
     margin: 0 auto;
     margin-bottom: 2%;
 }
+
+.errorMsg {
+    color: #FD2007;
+    margin-bottom: 10%;
+    font-size: 14px;
+}
+
+
 
 @media (max-width: 768px) { 
     .container {

@@ -10,8 +10,11 @@ import { Context } from '../../Context/AuthContext'
 
 function Login() {
 
+    // estados do context
     const { logado, isLogado, email, setEmail, password, setSenha, infoCliente, setInfoCliente, infoEmpresa, setInfoEmpresa } = useContext(Context);
     const [cliente, setCliente] = useState(true);
+    const [errorMsg, setErroMsg] = useState('');
+
 
 
     //CLIENTE
@@ -30,11 +33,16 @@ function Login() {
                     isLogado(true);
                     return response.json();
                 } else {
-                    console.log('Erro no login');
+                    setErroMsg('email ou senha incorretos. Tente novamente ou clique em "Esqueceu sua senha?"');
+                    setTimeout(() => {
+                        setErroMsg('');
+                    }, 5000);
                 }
             })
             .then(data => {
-                setInfoCliente(data);
+                if (Object.keys(data).length > 0) {
+                    setInfoCliente(data);
+                }
             })
 
             .catch(error => {
@@ -58,7 +66,10 @@ function Login() {
                     isLogado(true);
                     return response.json();
                 } else {
-                    console.log('Erro no login');
+                    setErroMsg('email ou senha incorretos. Tente novamente ou clique em "Esqueceu sua senha?"');
+                    setTimeout(() => {
+                        setErroMsg('');
+                    }, 5000);
                 }
             })
             .then(data => {
@@ -95,7 +106,7 @@ function Login() {
                         {logado ?
                             <div className={styles.containerLogado}>
                                 <h2>Você está logado como:</h2>
-                                <h3>{infoCliente.username}</h3>
+                                <h4>{infoCliente.username}</h4>
                                 <Button style={{ width: "50%", margin: "0 auto" }} variant='danger' onClick={handleDeslogar}>Deslogar</Button>
                             </div>
 
@@ -121,6 +132,7 @@ function Login() {
                                         }}>Esqueceu sua senha?</label></Link>
                                     </div>
                                     <input type="password" placeholder="Digite sua senha" value={password} onChange={(event) => setSenha(event.target.value)} />
+                                    {errorMsg && <h5 className={styles.errorMsg}>{errorMsg}</h5>}
                                     <p>Não tem uma conta?</p>
                                     <Link to="/cadastro">Cadastre-se</Link>
                                     <button role='button'>Logar</button>
@@ -133,7 +145,7 @@ function Login() {
                         {logado ?
                             <div className={styles.containerLogado}>
                                 <h2>Você está logado como:</h2>
-                                <h3>{email}</h3>
+                                <h4>{infoEmpresa.nome}</h4>
                                 <Button style={{ width: "50%", margin: "0 auto" }} variant='danger' onClick={handleDeslogar}>Deslogar</Button>
                             </div>
                             :
@@ -158,6 +170,7 @@ function Login() {
                                         }}>Esqueceu sua senha?</label></Link>
                                     </div>
                                     <input type="password" placeholder="Digite sua senha" value={password} onChange={(event) => setSenha(event.target.value)} />
+                                    {errorMsg && <h5 className={styles.errorMsg}>{errorMsg}</h5>}
                                     <p>Não tem uma conta?</p>
                                     <Link to="/cadastre-se">Cadastre-se</Link>
                                     <button role='button'>Logar</button>

@@ -1,6 +1,7 @@
 import styles from './Menu.module.css'
 import './Navbar.css'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useContext } from 'react';
+import { Context } from '../../Context/AuthContext';
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png'
 import icone from '../assets/icone_perfil.png'
@@ -9,6 +10,7 @@ import iconMenu from '../assets/menu.png';
 function Menu() {
     const [isTransparent, setTransparent] = useState(false);
     const [showMenu, setShowMenu] = useState(false);
+    const {logado, isLogado} = useContext(Context);
     
 
     //Scroll
@@ -44,10 +46,8 @@ function Menu() {
                     <li>Sobre</li>
                     <li>Contato</li>
                     <li>Pontos de coleta</li>
-
-                    <Link to="/perfil"><li className={styles.img_perfil}><img width='100%' src={icone} /></li></Link>
-
-
+                    {logado ? <Link to="/perfil"><li className={styles.img_perfil}><img width='100%' src={icone} /></li></Link> : ''}
+                    
                     <Link style={{ textDecoration: 'none' }} to="/login"><li>Login / Cadastro</li></Link>
                 </ul>
             </nav>

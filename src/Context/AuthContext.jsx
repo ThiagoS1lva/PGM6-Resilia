@@ -4,6 +4,7 @@ const Context = createContext();
 
 function AuthProvider({ children }) {
 
+    // ESTADOS
     const [logado, isLogado] = useState(() => {
         const storedIsLogged = localStorage.getItem('logado');
         return storedIsLogged ? JSON.parse(storedIsLogged) : false;
@@ -39,6 +40,8 @@ function AuthProvider({ children }) {
             setInfoEmpresa(JSON.parse(storedInfoEmpresa));
         }
     }, []);
+    
+    // ATUALIZANDO O LOCAL STORAGE
 
     useEffect(() => {
         localStorage.setItem('logado', JSON.stringify(logado));
@@ -51,6 +54,7 @@ function AuthProvider({ children }) {
     }, [infoEmpresa]);
 
     return (
+        // PASSANDO OS ESTADOS PARA TODOS OS COMPONENTES
         <Context.Provider value={{ logado, isLogado, email, setEmail, password, setSenha, infoCliente, setInfoCliente, infoEmpresa, setInfoEmpresa }}>
             {children}
         </Context.Provider>
