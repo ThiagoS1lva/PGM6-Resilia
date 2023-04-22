@@ -7,6 +7,7 @@ class EmpresaController {
         app.get('/Empresas', EmpresaController.listar)
         app.get('/Empresa/id/:id', EmpresaController.buscarPorID)
         app.post('/Empresa', EmpresaController.inserir)
+        app.post('/Empresa/login', EmpresaController.login)
         app.put('/Empresa/id/:id', EmpresaController.atualizaEmpresa)
         app.delete('/Empresa/id/:id', EmpresaController.deletarEmpresa)
     }
@@ -29,6 +30,25 @@ class EmpresaController {
         res.status(200).send(empresa)
     }
 
+    //LOGIN
+    static async login(req, res) {
+        const { email, password } = req.body
+
+        try {
+            const empresa = await EmpresaDAO.buscarPorEmailESenha(email, password);
+
+            if (!empresa) {
+                res.status(401).send('Email ou senha inválidos');
+            } else {
+                const token = 'token_de_autenticacao';
+                res.cookie('token', token);
+                res.send('Login bem sucedido');
+            }
+        } catch(err) {
+            console.log(err);
+            res.status(500).send('Erro ao realizar login');
+        }
+    }
 
 
     // POST - Adicionar 1 coletador

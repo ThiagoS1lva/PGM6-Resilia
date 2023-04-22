@@ -102,7 +102,7 @@ function Cadastro() {
                             <input type="text" maxLength={8} minLength={8} placeholder="Digite seu CEP" required value={cep} onChange={(event) => setCep(event.target.value)} />
 
                             <label>Digite seu email</label>
-                            <input type="email" placeholder="Digite seu email" required value={email} onChange={(event) => setEmail(event.target.value)} />
+                            <input type="email" placeholder="Digite seu email" required value={email.toLowerCase()} onChange={(event) => setEmail(event.target.value)} />
 
                             <label>Digite sua senha</label>
                             <input type="password" placeholder="Digite sua senha" required value={password} onChange={(event) => setPassword(event.target.value)} />

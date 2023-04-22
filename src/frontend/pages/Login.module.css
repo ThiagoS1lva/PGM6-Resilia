@@ -19,6 +19,15 @@
     background-color: #FFF;
 }
 
+.containerLogado {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    width: 55%;
+    text-align: center;
+}
+
 .containerLogin h1 {
     padding-bottom: 1%;
 }
@@ -125,6 +134,10 @@
     }
     .btnCE{
         width: 70%;
+    }
+    .containerLogado {
+        padding-bottom: 10%;
+        padding-top: 10%;
     }
 
 }

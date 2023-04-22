@@ -1,6 +1,6 @@
 // Importa o db.js para poder usar o banco de dados simulado
 import db from "../infra/db.js" ;
-
+import Cliente from "../models/cliente.js" ;
 
 
 // Essa classe encapsula o acesso ao Banco de Dados. Todos os métodos abaixos são estáticos. Isso quer dizer que não precisamos instanciar a classe para usá-los e serão chamados pela classe coletadorController... Alguns vão dar retorno e para outros, isso não será necessário
@@ -18,6 +18,27 @@ class ClienteDAO {
       });
     });
   }
+
+  //Buscar por email e senha
+  static buscarPorEmailESenha(email, password) {
+    const query = "SELECT * FROM Cliente WHERE email = ? AND password = ?";
+
+    return new Promise((resolve, reject) => {
+      db.get(query, [email, password], (err, row) => {
+        if (err) {
+          reject(err);
+        } else if (!row) {
+          resolve(null);
+        } else {
+          const cliente = new Cliente(row.email, row.password);
+          cliente.id = row.id;
+          resolve(cliente);
+        }
+      })
+    })
+  }
+
+
 
   // GET  --  
   static buscarPorID(id) {
