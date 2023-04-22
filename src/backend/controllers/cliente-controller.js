@@ -37,8 +37,10 @@ class ClienteController {
             req.body.username,
             req.body.email,
             req.body.password,
+            req.body.telefone,
+            req.body.cep
         )
-        if (!cliente.username || !cliente.email || !cliente.password) {
+        if (!cliente.username || !cliente.email || !cliente.password || !cliente.telefone || !cliente.cep) {
             res.status(400).send("Precisa passar todas as informações")
             return
         }
@@ -57,9 +59,10 @@ class ClienteController {
             req.body.username,
             req.body.email,
             req.body.password,
-            
+            req.body.telefone,
+            req.body.cep
         )
-        if (!cliente || !cliente.username || !cliente.email || !cliente.password) {
+        if (!cliente || !cliente.username || !cliente.email || !cliente.password || !cliente.telefone || !cliente.cep) {
             res.status(400).send("Precisa passar todas as informações")
             return
         }
@@ -79,7 +82,7 @@ class ClienteController {
     }}
 
 
-    // DELETE - Deletar 1 coletador
+    // DELETE - Deletar 1 cliente
     static async deletarCliente(req, res) {
         const cliente = await ClienteDAO.buscarPorID(req.params.id)
         if (!cliente) {

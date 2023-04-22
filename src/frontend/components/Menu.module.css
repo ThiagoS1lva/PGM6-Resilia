@@ -12,6 +12,7 @@ nav {
     top: 0;
     width: 100%;
     transition: all 1s ease-in-out;
+    z-index: 1;
 }
 .glass {
     height: 120px;
@@ -67,10 +68,6 @@ nav ul li:hover {
     .img_drop {
         width: 75px;
     }
-    .glass1 {
-        height: 120px;
-        background-color: rgb(89, 228, 126);
-    }
     .dropdownMenu {
         display: flex;
         position: fixed;
@@ -78,7 +75,9 @@ nav ul li:hover {
         flex-direction: column;
         text-align: center;
         padding-bottom: 4%;
+        top: 12%;
         background-color: rgb(89, 228, 126);
+        z-index: 1;
     }
     .link {
         text-decoration: none;
