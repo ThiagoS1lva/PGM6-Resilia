@@ -42,7 +42,7 @@ class EmpresaController {
             } else {
                 const token = 'token_de_autenticacao';
                 res.cookie('token', token);
-                res.send('Login bem sucedido');
+                res.send(empresa);
             }
         } catch(err) {
             console.log(err);

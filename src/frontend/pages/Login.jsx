@@ -10,11 +10,11 @@ import { Context } from '../../Context/AuthContext'
 
 function Login() {
 
-    const { logado, isLogado, email, setEmail, password, setSenha } = useContext(Context);
+    const { logado, isLogado, email, setEmail, password, setSenha, infoCliente, setInfoCliente, infoEmpresa, setInfoEmpresa } = useContext(Context);
     const [cliente, setCliente] = useState(true);
-    ;
 
 
+    //CLIENTE
     const handleSubmitCliente = (event) => {
         event.preventDefault();
         fetch('http://localhost:3000/Cliente/login', {
@@ -28,15 +28,21 @@ function Login() {
                 if (response.ok) {
                     console.log('Login bem sucedido');
                     isLogado(true);
+                    return response.json();
                 } else {
                     console.log('Erro no login');
                 }
             })
+            .then(data => {
+                setInfoCliente(data);
+            })
+
             .catch(error => {
                 console.log('Erro na requisição', error);
             });
     };
 
+    //EMPRESA
     const handleSubmitEmpresa = (event) => {
         event.preventDefault();
         fetch('http://localhost:3000/Empresa/login', {
@@ -50,9 +56,13 @@ function Login() {
                 if (response.ok) {
                     console.log('Login bem sucedido');
                     isLogado(true);
+                    return response.json();
                 } else {
                     console.log('Erro no login');
                 }
+            })
+            .then(data => {
+                setInfoEmpresa(data);
             })
             .catch(error => {
                 console.log('Erro na requisição', error);
@@ -66,6 +76,8 @@ function Login() {
         isLogado(false);
         setEmail('');
         setSenha('');
+        setInfoCliente({});
+        setInfoEmpresa({});
     }
 
     function handleEmpresa() {
@@ -83,7 +95,7 @@ function Login() {
                         {logado ?
                             <div className={styles.containerLogado}>
                                 <h2>Você está logado como:</h2>
-                                <h3>{email}</h3>
+                                <h3>{infoCliente.username}</h3>
                                 <Button style={{ width: "50%", margin: "0 auto" }} variant='danger' onClick={handleDeslogar}>Deslogar</Button>
                             </div>
 

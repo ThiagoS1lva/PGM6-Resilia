@@ -11,6 +11,16 @@ function AuthProvider({ children }) {
     const [email, setEmail] = useState('');
     const [password, setSenha] = useState('');
 
+    const [infoCliente, setInfoCliente] = useState(() => {
+        const storedInfoCliente = localStorage.getItem('infoCliente');
+        return storedInfoCliente ? JSON.parse(storedInfoCliente) : {};
+    })
+
+    const [infoEmpresa, setInfoEmpresa] = useState(() => {
+        const storedInfoEmpresa = localStorage.getItem('infoEmpresa');
+        return storedInfoEmpresa ? JSON.parse(storedInfoEmpresa) : {};
+    })
+
     // GUARDANDO NO LOCAL STORAGE
     useEffect(() => {
         // recupera o valor do local storage quando a página é carregada
@@ -18,13 +28,30 @@ function AuthProvider({ children }) {
         if (storedIsLogged) {
             isLogado(JSON.parse(storedIsLogged));
         }
+
+        const storedInfoCliente = localStorage.getItem('infoCliente');
+        if (storedInfoCliente) {
+            setInfoCliente(JSON.parse(storedInfoCliente));
+        }
+
+        const storedInfoEmpresa = localStorage.getItem('infoEmpresa');
+        if (storedInfoEmpresa) {
+            setInfoEmpresa(JSON.parse(storedInfoEmpresa));
+        }
     }, []);
+
     useEffect(() => {
         localStorage.setItem('logado', JSON.stringify(logado));
     }, [logado]);
+    useEffect(() => {
+        localStorage.setItem('infoCliente', JSON.stringify(infoCliente));
+    }, [infoCliente]);
+    useEffect(() => {
+        localStorage.setItem('infoEmpresa', JSON.stringify(infoEmpresa));
+    }, [infoEmpresa]);
 
     return (
-        <Context.Provider value={{ logado, isLogado, email, setEmail, password, setSenha }}>
+        <Context.Provider value={{ logado, isLogado, email, setEmail, password, setSenha, infoCliente, setInfoCliente, infoEmpresa, setInfoEmpresa }}>
             {children}
         </Context.Provider>
     )

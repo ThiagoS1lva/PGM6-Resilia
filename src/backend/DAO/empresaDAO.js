@@ -44,8 +44,13 @@ class EmpresaDAO {
         } else if (!row) {
           resolve(null);
         } else {
-          const empresa = new Empresa(row.email, row.password);
-          empresa.id = row.id;
+          const empresa = new Empresa(row.nome,row.telefone, row.CNPJ ,row.email, row.password);
+          empresa.nome = row.nome;
+          empresa.telefone = row.telefone;
+          empresa.cnpj = row.CNPJ;
+          empresa.email = row.email;
+          empresa.password = row.password;
+          console.log(empresa)
           resolve(empresa);
         }
       })

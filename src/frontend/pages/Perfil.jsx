@@ -3,10 +3,10 @@ import { Context } from '../../Context/AuthContext'
 
 
 function Perfil () {
-    const { email } = useContext(Context);
+    const { infoCliente, infoEmpresa } = useContext(Context);
     return (
         <h1>
-            Teste : {email}
+            Teste : {Object.keys(infoCliente).length === 0 ? infoEmpresa.nome : infoCliente.username}
         </h1>
     )
 }

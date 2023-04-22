@@ -30,7 +30,7 @@ class ClienteController {
         res.status(200).send(cliente)
     }
 
-    //Verificação se está logado
+    //LOGIN
     static async login(req, res) {
         const { email, password } = req.body
 
@@ -42,7 +42,7 @@ class ClienteController {
             } else {
                 const token = 'token_de_autenticacao';
                 res.cookie('token', token);
-                res.send('Login bem sucedido');
+                res.send(cliente);
             }
         } catch(err) {
             console.log(err);

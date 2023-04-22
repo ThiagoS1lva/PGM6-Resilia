@@ -30,8 +30,12 @@ class ClienteDAO {
         } else if (!row) {
           resolve(null);
         } else {
-          const cliente = new Cliente(row.email, row.password);
-          cliente.id = row.id;
+          const cliente = new Cliente(row.username, row.email, row.password, row.telefone, row.CEP);
+          cliente.username = row.username;
+          cliente.email = row.email;
+          cliente.password = row.password;
+          cliente.telefone = row.telefone;
+          cliente.cep = row.CEP;
           resolve(cliente);
         }
       })
