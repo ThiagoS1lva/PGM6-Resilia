@@ -15,8 +15,6 @@ function Login() {
     const [cliente, setCliente] = useState(true);
     const [errorMsg, setErroMsg] = useState('');
 
-
-
     //CLIENTE
     const handleSubmitCliente = (event) => {
         event.preventDefault();
@@ -73,15 +71,14 @@ function Login() {
                 }
             })
             .then(data => {
-                setInfoEmpresa(data);
+                if (Object.keys(data).length > 0) {
+                    setInfoEmpresa(data);
+                }
             })
             .catch(error => {
                 console.log('Erro na requisição', error);
             });
     };
-
-
-
 
     function handleDeslogar() {
         isLogado(false);
@@ -106,7 +103,7 @@ function Login() {
                         {logado ?
                             <div className={styles.containerLogado}>
                                 <h2>Você está logado como:</h2>
-                                <h4>{infoCliente.username}</h4>
+                                <h4>{Object.keys(infoCliente).length === 0 ? infoEmpresa.email : infoCliente.email}</h4>
                                 <Button style={{ width: "50%", margin: "0 auto" }} variant='danger' onClick={handleDeslogar}>Deslogar</Button>
                             </div>
 
@@ -145,9 +142,11 @@ function Login() {
                         {logado ?
                             <div className={styles.containerLogado}>
                                 <h2>Você está logado como:</h2>
-                                <h4>{infoEmpresa.nome}</h4>
+                                {Object.keys(infoCliente).length === 0 ? infoEmpresa.email : infoCliente.email} {/*Bugado */}
                                 <Button style={{ width: "50%", margin: "0 auto" }} variant='danger' onClick={handleDeslogar}>Deslogar</Button>
+                                {infoEmpresa.email}
                             </div>
+
                             :
 
                             <div className={styles.containerLogin}>

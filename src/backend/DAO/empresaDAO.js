@@ -50,7 +50,6 @@ class EmpresaDAO {
           empresa.cnpj = row.CNPJ;
           empresa.email = row.email;
           empresa.password = row.password;
-          console.log(empresa)
           resolve(empresa);
         }
       })
