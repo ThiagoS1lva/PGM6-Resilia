@@ -1,22 +1,30 @@
+// Footer.jsx
 import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram } from 'react-icons/fa';
+import './Footer.css';
+import { FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 function Footer() {
   return (
     <footer>
-      <div className="icons">
-        <FaFacebook />
-        <FaTwitter />
-        <FaInstagram />
+      <div className='elements'>
+        <ul> <h5>contato</h5>
+          <li>
+            <FaInstagram/>Recicla.ai
+          </li>
+          <li>
+            <FaLinkedin/>Grupo-Reciclaai
+          </li>
+          <li>
+            <FaEnvelope/>Recicla.ai@gmail.com
+          </li>
+        </ul>
+        <ul> <h3>Recicla.ai</h3>
+          <li><p>Somos uma empresa que conecta pessoas que <br /> reciclam à empresas de reciclagem</p></li>
+        </ul>
+        <ul> <h3>Recicla.ai</h3>
+          <li><p>Somos uma empresa que conecta pessoas que <br /> reciclam à empresas de reciclagem</p></li>
+        </ul>
       </div>
-      <ul>
-        <h3>Recicla.ai</h3>
-        <li>
-          <p>
-            Somos uma empresa que conecta pessoas que reciclam à empresas de reciclagem
-          </p>
-        </li>
-      </ul>
     </footer>
   );
 }
