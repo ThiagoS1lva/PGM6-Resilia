@@ -6,6 +6,7 @@ import Perfil from './frontend/pages/Perfil'
 import styles from './App.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from './frontend/components/Footer'
+import Contatos from './frontend/pages/Contatos';
 
 import { AuthProvider } from './Context/AuthContext'
 
@@ -19,6 +20,7 @@ function App() {
           <Route path="perfil" element={<Perfil />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
+          <Route path="/contatos" element={<Contatos />} />
         </Routes>
         <Footer />
       </AuthProvider>
