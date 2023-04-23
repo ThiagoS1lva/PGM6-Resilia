@@ -5,6 +5,7 @@ class ColetaController {
     static rotas(app) {
         app.get('/Coletas', ColetaController.listar)
         app.post('/Coleta', ColetaController.inserir)
+        app.get('/Coleta/cnpj/:cnpj', ColetaController.listarPontosDeColetaPorCnpj);
         app.put('/Coleta/id/:id', ColetaController.atualizaColeta)
         app.delete('/Coleta/id/:id', ColetaController.deletarColeta)
     }
@@ -14,6 +15,17 @@ class ColetaController {
         const coletas = await ColetaDAO.listar()
         res.status(200).send(coletas)
     }
+
+
+    static async listarPontosDeColetaPorCnpj(req, res) {
+        const cnpj = req.params.cnpj;
+        const pontosDeColeta = await ColetaDAO.listarPontosDeColetaPorCnpj(cnpj);
+        if (!pontosDeColeta) {
+            res.status(404).send({ 'Mensagem': 'Coleta não encontrada' })
+            return
+        }
+        res.send(pontosDeColeta);
+    };
 
     // POST - Adicionar 1 coletador
     static async inserir(req, res) {

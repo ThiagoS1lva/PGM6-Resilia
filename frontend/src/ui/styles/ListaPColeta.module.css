@@ -1,0 +1,29 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 90%;
+}
+.container h2 {
+    margin-bottom: 3%;
+}
+.containerLista ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 20px;
+    list-style: none;
+    margin-bottom: 4%;
+}
+
+.containerLista ul li {
+    padding: 3%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    width: 80%;
+    margin-bottom: 4%;
+    border-radius: 5px;
+}
+
+.container ul li button {
+    border: none;
+    display: flex;
+}
