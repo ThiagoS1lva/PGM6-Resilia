@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import LoginCarousels from '../ui/components/Login/LoginCarousels';
 import Button from 'react-bootstrap/Button';
 import React, { useContext, useState, useEffect } from 'react';
-
+import Cliente from '../../public/cliente.png';
+import Empresa from '../../public/empresa.png';
 
 import { Context } from '../contexts/AuthContext.jsx'
 
@@ -111,7 +112,7 @@ function Login() {
                             <div className={styles.containerLogin}>
                                 <h1>Login</h1>
                                 <div style={{ marginBottom: '4%' }}>
-                                    <img src="" width='10%' />
+                                    <img src={Cliente} width='10%' />
                                 </div>
                                 <div className={styles.btnCE}>
                                     <Button onClick={handleCliente}>Cliente</Button>

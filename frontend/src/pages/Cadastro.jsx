@@ -2,7 +2,8 @@ import styles from './Cadastro.module.css';
 import { Link } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
 import { useState } from 'react';
-
+import Cliente from '../../public/cliente.png';
+import Empresa from '../../public/empresa.png';
 
 
 function Cadastro() {
