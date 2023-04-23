@@ -141,7 +141,6 @@ function Login() {
                                 <h2>Você está logado como:</h2>
                                 {Object.keys(infoCliente).length === 0 ? infoEmpresa.email : infoCliente.email} {/*Bugado */}
                                 <Button style={{ width: "50%", margin: "0 auto" }} variant='danger' onClick={handleDeslogar}>Deslogar</Button>
-                                {infoEmpresa.email}
                             </div>
 
                             :

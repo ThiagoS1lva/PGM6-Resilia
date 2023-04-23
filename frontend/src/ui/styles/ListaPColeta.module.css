@@ -27,3 +27,12 @@
     border: none;
     display: flex;
 }
+
+@media (max-width: 768px) {
+    .containerLista ul {
+        grid-template-columns: repeat(1, 1fr);
+    }
+    .containerLista {
+        margin-bottom: 10%;
+    }
+}
