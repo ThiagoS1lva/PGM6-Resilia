@@ -70,7 +70,7 @@ function Menu() {
                             <Link to="/" className={styles.link} onClick={toggleMenu}><li>Sobre</li></Link>
                             <Link to="/contatos" className={styles.link} onClick={toggleMenu}><li>Contato</li></Link>
                             <Link to="/" className={styles.link} onClick={toggleMenu}><li>Pontos de coleta</li></Link>
-                            <Link to="/perfil" className={styles.link} onClick={toggleMenu}><li>Perfil</li></Link>
+                            {logado ? <Link to="/perfil" className={styles.link} onClick={toggleMenu}><li>Perfil</li></Link> : ''}
                             <Link className={styles.link} to="/login" onClick={toggleMenu}><li>Login / Cadastro</li></Link>
                         </div>
                     </div>
