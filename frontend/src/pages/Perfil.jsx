@@ -14,14 +14,13 @@ function Perfil() {
     const [msg, setMsg] = useState('');
 
 
-    if (Object.keys(infoCliente).length != 0) {
-        useEffect(() => {
-            fetch(`https://viacep.com.br/ws/${infoCliente.cep}/json/`)
-                .then(response => response.json())
-                .then(data => setEndereco(data))
-                .catch(error => console.error(error));
-        }, []);
-    }
+
+    fetch(`https://viacep.com.br/ws/${Object.keys(infoCliente).length === 0 ? '01001000' : infoCliente.cep}/json/`)
+        .then(response => response.json())
+        .then(data => setEndereco(data))
+        .catch(error => console.error(error));
+
+
 
     const enviarColeta = async () => {
         try {
@@ -67,7 +66,7 @@ function Perfil() {
 
                         <p><b> Nome:</b> {Object.keys(infoCliente).length === 0 ? infoEmpresa.nome : infoCliente.username} <BsFillPencilFill /></p>
 
-                        <p style={{ display: 'flex' }}>{Object.keys(infoCliente).length === 0 ? <b>CNPJ: </b> : <b>CEP: </b>}  {Object.keys(infoCliente).length === 0 ? infoEmpresa.cnpj : endereco.cep}</p>
+                        <p style={{ display: 'flex' }}>{Object.keys(infoCliente).length === 0 ? <b>CNPJ: </b> : <b>CEP: </b>}  {Object.keys(infoCliente).length === 0 ? infoEmpresa.cnpj : infoCliente.cep}</p>
 
                         <p><b>Telefone:</b> {Object.keys(infoCliente).length === 0 ? infoEmpresa.telefone : infoCliente.telefone}</p>
 
@@ -114,7 +113,7 @@ function Perfil() {
 
             </div>
             {Object.keys(infoCliente).length === 0 ?
-            <ListaPColeta /> : '' }
+                <ListaPColeta /> : ''}
         </>
     );
 };
