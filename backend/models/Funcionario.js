@@ -1,10 +1,8 @@
 class Funcionario {
-    constructor(id, nome, cpf, cargo, salario, rotafoto) {
+    constructor(id, nome, cargo, rotafoto) {
         this.id = id;
         this.nome = nome;
-        this.cpf = cpf;
         this.cargo = cargo;
-        this.salario = salario;
         this.rotafoto = rotafoto;
     }
 }

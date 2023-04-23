@@ -41,3 +41,5 @@ class SobreDAO {
   };
 
 }
+
+export default SobreDAO;

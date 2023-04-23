@@ -24,6 +24,7 @@ function App() {
           <Route path="/contato" element={<Contatos />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/coleta" element={<Coleta />} />
+          <Route path="/sobre" element={<Sobre />}/>
           <Route/>
         </Routes>
         <Footer />

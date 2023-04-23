@@ -1,5 +1,5 @@
 import FuncionarioModels from '../ui/components/Sobre/FuncionarioModel';
-import Caixa from '../ui/components/Sobre/CaixaTexo';
+import Caixa from '../ui/components/Sobre/CaixaTexto';
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
@@ -20,11 +20,10 @@ const Sobre = () => {
     
   return (
       <>
-          <Navbar/>
           <Caixa/>
           <Row>
             {funcionarios.map(funcionario => (
-              <Col sm={4}>
+              <Col key={funcionario.id} sm={6} md={4} >
                 <FuncionarioModels
                   rotafoto={funcionario.rotafoto}
                   nome={funcionario.nome}

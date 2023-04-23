@@ -13,9 +13,13 @@ app.use(cors())
 import ClienteController from './controllers/cliente-controller.js';
 import EmpresaController from './controllers/empresa-controller.js';
 import ColetaController from './controllers/coleta-controller.js';
+import SobreController from './controllers/sobre-controller.js';
+import StaffController from './controllers/staff-controller.js';
 
 ClienteController.rotas(app);
 EmpresaController.rotas(app);
 ColetaController.rotas(app);
+SobreController.rotas(app);
+StaffController.rotas(app);
 
 export default app
