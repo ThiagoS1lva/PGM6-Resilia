@@ -5,18 +5,29 @@ footer {
   bottom: 0;
   padding-bottom: 0.5%;
   padding-top: 0.5%;
-  margin: -25px; 
-  width: 100vw
+  width: 100%
 }
 .elements{
   display: flex;
   justify-content: space-around;
+  
 }
-
-.copy {
-  padding-top: 5.5%;
+.cop1 {
+  display: flex;
+  align-items: end;
 }
 .logo-img {
-  max-width: 100%;
-  max-height: 50px; /* altura máxima de 50 pixels, ajuste de acordo com suas necessidades */
+  width:  50px;
+  height: 50px; /* altura máxima de 50 pixels, ajuste de acordo com suas necessidades */
+  margin: auto 0;
+}
+@media (max-width: 768px) {
+  .elements {
+    flex-direction: column;
+  }
+  .logo-img {
+    margin: 0 auto;
+    width: 75px;
+    height: 75px;
+  }
 }
