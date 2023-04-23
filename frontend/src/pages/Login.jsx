@@ -167,7 +167,7 @@ function Login() {
                                     <input type="password" placeholder="Digite sua senha" value={password} onChange={(event) => setSenha(event.target.value)} />
                                     {errorMsg && <h5 className={styles.errorMsg}>{errorMsg}</h5>}
                                     <p>Não tem uma conta?</p>
-                                    <Link to="/cadastre-se">Cadastre-se</Link>
+                                    <Link to="/cadastro">Cadastre-se</Link>
                                     <button role='button'>Logar</button>
                                 </form>
                             </div>
