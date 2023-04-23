@@ -44,8 +44,8 @@ function Menu() {
                 </div>
                 <ul className={`ul ${isTransparent ? "teste" : ""}`}>
                     <Link to="/" style={{ textDecoration: 'none' }}><li>Página Inicial</li></Link>
-                    <li>Sobre</li>
-                    <Link to="/contatos" style={{ textDecoration: 'none' }}><li>Contato </li></Link>
+                    <Link to="/sobre" style={{ textDecoration: 'none' }}><li>Sobre </li></Link>
+                    <Link to="/contato" style={{ textDecoration: 'none' }}><li>Contato </li></Link>
                     <li>Pontos de coleta</li>
                     {logado ? <Link to="/perfil"><li className={styles.img_perfil}><img width='100%' src={icone} /></li></Link> : ''}
                     
@@ -67,8 +67,8 @@ function Menu() {
                     <div className={styles.dropdown}>
                         <div className={styles.dropdownMenu}>
                             <Link to="/" className={styles.link} onClick={toggleMenu}><li>Página Inicial</li></Link>
-                            <Link to="/" className={styles.link} onClick={toggleMenu}><li>Sobre</li></Link>
-                            <Link to="/contatos" className={styles.link} onClick={toggleMenu}><li>Contato</li></Link>
+                            <Link to="/sobre" className={styles.link} onClick={toggleMenu}><li>Sobre</li></Link>
+                            <Link to="/contato" className={styles.link} onClick={toggleMenu}><li>Contato</li></Link>
                             <Link to="/" className={styles.link} onClick={toggleMenu}><li>Pontos de coleta</li></Link>
                             {logado ? <Link to="/perfil" className={styles.link} onClick={toggleMenu}><li>Perfil</li></Link> : ''}
                             <Link className={styles.link} to="/login" onClick={toggleMenu}><li>Login / Cadastro</li></Link>
