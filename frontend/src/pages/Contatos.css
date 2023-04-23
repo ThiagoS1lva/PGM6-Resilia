@@ -1,15 +1,3 @@
-
-*{
-    font-family: "Barlow", sans-serif;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    color: #333333;
-}
-p{
-    color: #777;
-}
-
 .Contatos{
     padding: 2rem;
 }
@@ -87,5 +75,17 @@ textarea{
 }
 
 .actions button:hover{
-    background-color: rgb(146, 233, 146);
+    background-color: rgb(31, 95, 31);
 }
+
+button {
+    display: inline-block;
+    background-color:  rgb(146, 233, 146);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+ 

@@ -13,9 +13,9 @@ const ReviewForm = ({ data, updateFieldHandler }) => {
   return (
     <div className='review-form'>
       <div className="form-control score-container">
-        <label className="radio-container">
+          <label className="radio-container">
           <input type="radio" value="unsatisfied" name='review' required
-            checked={data.review=== "unsatisfied"}
+            checked={data.review ==="unsatisfied"}
             onChange={(e) => updateFieldHandler("review", e.target.value)}
           />
           <BsFillEmojiFrownFill />
@@ -39,7 +39,7 @@ const ReviewForm = ({ data, updateFieldHandler }) => {
         </label>
         <label className="radio-container">
           <input type="radio" value="very_satisfied" name='review' required
-            checked={data.review=== "vary_satisfied"}
+            checked={data.review=== "very_satisfied"}
             onChange={(e) => updateFieldHandler("review", e.target.value)}
           />
           <BsFillEmojiHeartEyesFill />

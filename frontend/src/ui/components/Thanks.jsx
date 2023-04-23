@@ -10,7 +10,7 @@ import {
   import './Thanks.css';
   
   const emojiData={
-    undefined: <BsFillEmojiFrownFill/>,
+    unsatisfied: <BsFillEmojiFrownFill/>,
     neutral:<BsFillEmojiNeutralFill/>,
     satisfied: <BsFillEmojiSmileFill/>,
     very_satisfied:<BsFillEmojiHeartEyesFill/>,
@@ -28,7 +28,7 @@ import {
       {emojiData[data.review]}
      </p>
      <p className='review-data'>
-      <span>Comentário:</span>
+      <span>Comentário: </span>
       {data.comment}
      </p>
      </div>

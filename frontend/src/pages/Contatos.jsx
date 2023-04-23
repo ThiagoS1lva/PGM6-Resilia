@@ -62,7 +62,7 @@ function Contatos() {
                 <GrFormNext />
               </button>
             ) : (
-              <button type='button'>
+              <button type='button' onClick={() => window.location.reload()}>
                 <span>Enviar</span>
                 <FiSend />
               </button>
