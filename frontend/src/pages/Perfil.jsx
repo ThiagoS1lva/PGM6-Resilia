@@ -1,5 +1,5 @@
 import { useContext } from 'react';
-import { Context } from '../../Context/AuthContext'
+import { Context } from '../contexts/AuthContext'
 import styles from './Perfil.module.css'
 import editar from '../../public/img/editar.png'
 

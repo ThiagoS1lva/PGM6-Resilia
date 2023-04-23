@@ -3,8 +3,7 @@ import { Link } from 'react-router-dom';
 import LoginCarousels from '../ui/components/Login/LoginCarousels';
 import Button from 'react-bootstrap/Button';
 import React, { useContext, useState, useEffect } from 'react';
-import Cliente from '../../public/img/cliente.png';
-import Empresa from '../../public/img/empresa.png';
+
 
 import { Context } from '../contexts/AuthContext.jsx'
 
