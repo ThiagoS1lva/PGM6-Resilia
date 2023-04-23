@@ -28,7 +28,7 @@ function Footer() {
           <h3>Recicla.ai</h3>
           <li>
             <p>
-              Somos uma empresa que conecta pessoas que <br /> reciclam à empresas de reciclagem
+              Reciclar é um gesto de respeito à natureza. <br /> Conecte-se com empresas que compartilham desse sentimento.
             </p>
           </li>
         </ul>

@@ -34,7 +34,7 @@ function Coleta() {
 
   return (
     <div className={styles.coleta}>
-      <h1>Pontos de coleta de Recicláveis</h1>
+      <h1 className={styles.h1}>Pontos de coleta de Recicláveis</h1>
       <div className={styles.search}>
         <input type="text" placeholder="Digite o lugar, material ou cnpj" value={busca} onChange={handleBusca} />
       </div>

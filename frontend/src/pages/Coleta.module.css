@@ -32,6 +32,10 @@
   box-sizing: border-box;
   box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.4);
 }
+.h1{
+  display: flex;
+  justify-content: center;
+}
 
 @media screen and (max-width: 800px) {
   .coleta .card {
