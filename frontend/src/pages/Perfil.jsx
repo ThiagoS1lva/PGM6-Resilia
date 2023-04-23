@@ -1,7 +1,8 @@
 import { useContext } from 'react';
 import { Context } from '../../Context/AuthContext'
 import styles from './Perfil.module.css'
-import editar from '../assets/editar.png'
+import editar from '../../public/img/editar.png'
+
 
 function Perfil() {
     const { infoCliente, infoEmpresa } = useContext(Context);
@@ -29,7 +30,7 @@ function Perfil() {
 
             </div>
         </>
-    )
-}
+    );
+};
 
 export default Perfil

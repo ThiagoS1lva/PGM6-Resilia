@@ -1,12 +1,12 @@
 import styles from './Login.module.css';
 import { Link } from 'react-router-dom';
-import LoginCarousels from '../components/Login/LoginCarousels';
+import LoginCarousels from '../ui/components/Login/LoginCarousels';
 import Button from 'react-bootstrap/Button';
 import React, { useContext, useState, useEffect } from 'react';
-import Cliente from '../assets/cliente.png';
-import Empresa from '../assets/empresa.png';
+import Cliente from '../../public/img/cliente.png';
+import Empresa from '../../public/img/empresa.png';
 
-import { Context } from '../../Context/AuthContext'
+import { Context } from '../contexts/AuthContext.jsx'
 
 function Login() {
 

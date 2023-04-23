@@ -1,11 +1,12 @@
-import styles from './Menu.module.css'
-import './Navbar.css'
+import styles from '../styles/Menu.module.css'
+import '../styles/Navbar.module.css'
 import { useState, useEffect, useContext } from 'react';
-import { Context } from '../../Context/AuthContext';
+import { Context } from '../../contexts/AuthContext';
 import { Link } from 'react-router-dom';
-import logo from '../assets/logo.png'
-import icone from '../assets/icone_perfil.png'
-import iconMenu from '../assets/menu.png';
+import logo from '../../../public/img/logo.png'
+import icone from '../../../public/img/icone_perfil.png'
+import iconMenu from '../../../public/img/menu.png';
+
 
 function Menu() {
     const [isTransparent, setTransparent] = useState(false);

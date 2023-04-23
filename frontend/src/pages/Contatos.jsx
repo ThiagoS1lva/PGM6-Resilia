@@ -1,4 +1,4 @@
-import styles from './Contatos.css';
+import styles from './Contatos.module.css';
 
 
 

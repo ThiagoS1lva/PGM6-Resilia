@@ -1,14 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Menu from './frontend/components/Menu'
-import Login from './frontend/pages/Login'
-import Cadastro from './frontend/pages/Cadastro'
-import Perfil from './frontend/pages/Perfil'
+import Menu from './src/ui/components/Menu'
+import Login from './src/pages/Login'
+import Cadastro from './src/pages/Cadastro'
+import Perfil from './src/pages/Perfil'
 import styles from './App.module.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from './frontend/components/Footer'
-import Contatos from './frontend/pages/Contatos';
-
-import { AuthProvider } from './Context/AuthContext'
+import Footer from './src/ui/components/Footer'
+import Contatos from './src/pages/Contatos';
+import { AuthProvider } from './src/contexts/AuthContext.jsx'
 
 function App() {
 
@@ -20,7 +19,6 @@ function App() {
           <Route path="perfil" element={<Perfil />} />
           <Route path="/login" element={<Login />} />
           <Route path="/cadastro" element={<Cadastro />} />
-          <Route path="/contatos" element={<Contatos />} />
         </Routes>
         <Footer />
       </AuthProvider>

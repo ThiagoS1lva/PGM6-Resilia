@@ -1,6 +1,6 @@
 // Importa o db.js para poder usar o banco de dados simulado
 import db from "../infra/db.js" ;
-import Cliente from "../models/cliente.js" ;
+import Cliente from "../models/Cliente.js" ;
 
 
 // Essa classe encapsula o acesso ao Banco de Dados. Todos os métodos abaixos são estáticos. Isso quer dizer que não precisamos instanciar a classe para usá-los e serão chamados pela classe coletadorController... Alguns vão dar retorno e para outros, isso não será necessário

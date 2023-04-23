@@ -1,7 +1,7 @@
 import { Carousel } from 'react-bootstrap';
-import img1 from '../../assets/carrossel/1.png';
-import img2 from '../../assets/carrossel/2.png'
-import img3 from '../../assets/carrossel/3.png'
+import img1 from '../../../../public/img/carrossel/1.png';
+import img2 from '../../../../public/img/carrossel/2.png'
+import img3 from '../../../../public/img/carrossel/3.png'
 
 function LoginCarousels() {
     return (

@@ -1,5 +1,5 @@
 //importando um módulo chamado "index.js" 
-import app from '../index.js'
+import app from './index.js'
 
 // escolhendo a porta em que o servidor será aberto
 const port = 3000

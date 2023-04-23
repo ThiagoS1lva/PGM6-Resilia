@@ -1,5 +1,5 @@
-import ClienteDAO from '../DAO/clienteDAO.js'
-import Cliente from '../models/cliente.js'
+import ClienteDAO from '../DAO/ClienteDAO.js'
+import Cliente from '../models/Cliente.js'
 
 
 class ClienteController {

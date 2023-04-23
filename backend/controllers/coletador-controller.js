@@ -1,5 +1,5 @@
-import ColetadorDAO from '../DAO/ColetadorDAO.js'
-import Coletador from '../models/Coletador.js'
+import ColetadorDAO from '../DAO/ColetorDAO.js'
+import Coletador from '../models/Coletor.js'
 
 
 class ColetadorController {
