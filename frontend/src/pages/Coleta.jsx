@@ -15,14 +15,19 @@ function Coleta() {
   const handleBusca = (event) => {
     setBusca(event.target.value);
   };
-
-  function removerAcentosEPontuacoes(texto) {
+  //função pra remover acento
+  function removeAccents(texto) {
     // Remover acentos
     texto = texto.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
     return texto;
   }
 
-  const pontosFiltrados = pontosDeColeta.filter(ponto => removerAcentosEPontuacoes(ponto.materiais_reciclaveis.toLowerCase()).includes(removerAcentosEPontuacoes(busca.toLowerCase())));
+  const pontosFiltrados = pontosDeColeta.filter(ponto => {
+    const text = `${ponto.materiais_reciclaveis} ${ponto.endereco} ${ponto.cnpj}`;
+    const normalizedText = removeAccents(text).toLowerCase();
+    const normalizedBusca = removeAccents(busca).toLowerCase();
+    return normalizedText.includes(normalizedBusca);
+  });
 
 
 
@@ -32,7 +37,6 @@ function Coleta() {
       <h1>Pontos de coleta de Recicláveis</h1>
       <div className={styles.search}>
         <input type="text" placeholder="Digite o material a ser buscado" value={busca} onChange={handleBusca} />
-        <button>Buscar</button>
       </div>
       <div className={styles.cards}>
         {pontosFiltrados.map(ponto => (
