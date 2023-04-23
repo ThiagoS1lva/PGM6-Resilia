@@ -21,6 +21,7 @@ function App() {
         <Routes>
           <Route path="perfil" element={<Perfil />} />
           <Route path="/login" element={<Login />} />
+          <Route path="/contato" element={<Contatos />} />
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/coleta" element={<Coleta />} />
           <Route/>
