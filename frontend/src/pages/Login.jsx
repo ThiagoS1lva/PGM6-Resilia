@@ -123,10 +123,7 @@ function Login() {
                                     <input type="email" placeholder="Digite seu email" value={email} onChange={(event) => setEmail(event.target.value)} />
                                     <div className={styles.label}>
                                         <label>Digite sua senha</label>
-                                        <Link to="/"><label style={{
-                                            cursor
-                                                : "pointer"
-                                        }}>Esqueceu sua senha?</label></Link>
+                                        <Link to="/"><label style={{cursor: "pointer"}}>Esqueceu sua senha?</label></Link>
                                     </div>
                                     <input type="password" placeholder="Digite sua senha" value={password} onChange={(event) => setSenha(event.target.value)} />
                                     {errorMsg && <h5 className={styles.errorMsg}>{errorMsg}</h5>}

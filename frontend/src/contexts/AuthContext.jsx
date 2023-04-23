@@ -9,6 +9,8 @@ function AuthProvider({ children }) {
         const storedIsLogged = localStorage.getItem('logado');
         return storedIsLogged ? JSON.parse(storedIsLogged) : false;
     });
+
+    
     const [email, setEmail] = useState('');
     const [password, setSenha] = useState('');
 
