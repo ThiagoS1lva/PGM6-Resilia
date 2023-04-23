@@ -7,7 +7,7 @@ import {
   BsFillEmojiFrownFill,
 } from 'react-icons/bs'
 
-import './ReviewForm.css';
+import './ReviewFrom.css';
 
 const ReviewForm = ({ data, updateFieldHandler }) => {
   return (
