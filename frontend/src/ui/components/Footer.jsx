@@ -20,17 +20,18 @@ function Footer() {
             <FaEnvelope />Recicla.ai@gmail.com
           </li>
         </ul>
-        <img src={logo} alt="Logo da Recicla.ai" className="logo-img" /> 
-        <p className='copy' >
-          &copy; 2023 - Recicla ai</p>
+        <img src={logo} alt="Logo da Recicla.ai" className="logo-img" />
+        <div className='cop1'>
+          <p> &copy; 2023 - Recicla.ai</p>
+        </div>
         <ul>
           <h3>Recicla.ai</h3>
           <li>
             <p>
               Somos uma empresa que conecta pessoas que <br /> reciclam à empresas de reciclagem
-              </p>
+            </p>
           </li>
-        </ul> 
+        </ul>
       </div>
     </footer>
   );
