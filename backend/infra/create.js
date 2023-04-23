@@ -4,11 +4,12 @@ const db = new sqlite3.Database('./database.db');
 
 
 const CLIENTE_SCHEMA = `
-CREATE TABLE IF NOT EXISTS "Cliente" (
+CREATE TABLE IF NOT EXISTS "ponto_coleta" (
     "ID" INTEGER PRIMARY KEY AUTOINCREMENT,
-    "username" varchar(64),
-    "email" varchar(64),
-    "password" varchar(64)
+    materiais_reciclaveis VARCHAR(255) NOT NULL,
+    horario_funcionamento VARCHAR(255) NOT NULL,
+    endereco VARCHAR(255) NOT NULL,
+    cnpj VARCHAR(20) NOT NULL
 );`;
 
 function criarTabelaCliente () {
