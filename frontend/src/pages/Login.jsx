@@ -111,7 +111,7 @@ function Login() {
                             <div className={styles.containerLogin}>
                                 <h1>Login</h1>
                                 <div style={{ marginBottom: '4%' }}>
-                                    <img src={Cliente} width='10%' />
+                                    <img src="" width='10%' />
                                 </div>
                                 <div className={styles.btnCE}>
                                     <Button onClick={handleCliente}>Cliente</Button>

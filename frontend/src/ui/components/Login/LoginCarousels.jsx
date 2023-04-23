@@ -1,7 +1,7 @@
 import { Carousel } from 'react-bootstrap';
-import img1 from '../../../../public/img/carrossel/1.png';
-import img2 from '../../../../public/img/carrossel/2.png'
-import img3 from '../../../../public/img/carrossel/3.png'
+//import img1 from '../../../../public/img/carrossel/1.png';
+//import img2 from '../../../../public/img/carrossel/2.png'
+//import img3 from '../../../../public/img/carrossel/3.png'
 
 function LoginCarousels() {
     return (
@@ -9,7 +9,7 @@ function LoginCarousels() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src={img1}
+                    src=""
                 />
                 <div style={{ textAlign: 'center' }}>
                     <h4>Faça login ou cadastre-se no nosso site!</h4>
@@ -18,7 +18,7 @@ function LoginCarousels() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src={img2}
+                    src=""
                 />
                 <div style={{ textAlign: 'center' }}>
                     <h4>Ajude a transformar materiais orgânicos em recursos valiosos para nosso planeta!</h4>
@@ -27,7 +27,7 @@ function LoginCarousels() {
             <Carousel.Item>
                 <img
                     className="d-block w-100"
-                    src={img3}
+                    src=""
                 />
 
                 <div style={{ textAlign: 'center' }}>
