@@ -43,7 +43,7 @@ function Contatos() {
     <div className='Contatos'>
       <div className='header'>
         <h2>Entre em contato conosco</h2>
-        <p>É sempre gratificante ver pessoas interessadas em nossos serviços e estamos animados para poder ajudá-lo da melhor forma possível. Por favor, preencha o formulário com as informações solicitadas e entraremos em contato em breve. Obrigado!</p>
+        <p className='p'>É sempre gratificante ver pessoas interessadas em nossos serviços e estamos animados para poder ajudá-lo da melhor forma possível. Por favor, preencha o formulário com as informações solicitadas e entraremos em contato em breve. Obrigado!</p>
       </div>
       <div className='form-container'>
         <Steps currentStep={currentStep} />
