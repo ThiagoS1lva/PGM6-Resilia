@@ -46,7 +46,8 @@ function Menu() {
                     <Link to="/" style={{ textDecoration: 'none' }}><li>Página Inicial</li></Link>
                     <Link to="/sobre" style={{ textDecoration: 'none' }}><li>Sobre </li></Link>
                     <Link to="/contato" style={{ textDecoration: 'none' }}><li>Contato </li></Link>
-                    <li>Pontos de coleta</li>
+                    <Link to="/coleta" style={{ textDecoration: 'none' }}><li>Ponto de coleta </li></Link>
+                    
                     {logado ? <Link to="/perfil"><li className={styles.img_perfil}><img width='100%' src={icone} /></li></Link> : ''}
                     
                     <Link style={{ textDecoration: 'none' }} to="/login"><li>Login / Cadastro</li></Link>
@@ -69,7 +70,7 @@ function Menu() {
                             <Link to="/" className={styles.link} onClick={toggleMenu}><li>Página Inicial</li></Link>
                             <Link to="/sobre" className={styles.link} onClick={toggleMenu}><li>Sobre</li></Link>
                             <Link to="/contato" className={styles.link} onClick={toggleMenu}><li>Contato</li></Link>
-                            <Link to="/" className={styles.link} onClick={toggleMenu}><li>Pontos de coleta</li></Link>
+                            <Link to="/coleta" className={styles.link} onClick={toggleMenu}><li>Pontos de coleta</li></Link>
                             {logado ? <Link to="/perfil" className={styles.link} onClick={toggleMenu}><li>Perfil</li></Link> : ''}
                             <Link className={styles.link} to="/login" onClick={toggleMenu}><li>Login / Cadastro</li></Link>
                         </div>
