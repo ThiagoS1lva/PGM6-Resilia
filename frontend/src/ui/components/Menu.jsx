@@ -1,5 +1,5 @@
 import styles from '../styles/Menu.module.css'
-import '../styles/Navbar.module.css'
+import '../styles/Navbar.css'
 import { useState, useEffect, useContext } from 'react';
 import { Context } from '../../contexts/AuthContext';
 import { Link } from 'react-router-dom';
