@@ -7,6 +7,9 @@ import { BsFillPencilFill } from 'react-icons/bs';
 function Perfil() {
     const { infoCliente, infoEmpresa } = useContext(Context);
     const [endereco, setEndereco] = useState(null)
+    const [materiaisReciclaveis, setMateriaisReciclaveis] = useState('');
+    const [horarioFuncionamento, setHorarioFuncionamento] = useState('');
+    const [endereco1, setEndereco1] = useState('');
 
     useEffect(() => {
         fetch(`https://viacep.com.br/ws/${infoCliente.cep}/json/`)
@@ -16,6 +19,32 @@ function Perfil() {
     }, []);
 
 
+    const enviarColeta = async () => {
+        try {
+            const response = await fetch('http://localhost:3000/Coleta', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    materiais_reciclaveis: materiaisReciclaveis,
+                    horario_funcionamento: horarioFuncionamento,
+                    endereco: endereco1,
+                    cnpj: infoEmpresa.cnpj
+                })
+            });
+
+            if (response.ok) {
+                console.log('Dados enviados com sucesso!');
+            } else {
+                console.error('Erro ao enviar os dados!');
+            }
+        } catch (error) {
+            console.error(`Erro ao enviar os dados: ${error.message}`);
+        }
+    };
+
+
+
+
     return (
         <>
             <div className={styles.container}>
@@ -23,7 +52,7 @@ function Perfil() {
                 <div className={styles.containerInfo}>
                     <div className={styles.containerInfo1}>
 
-                        <p><b> Nome:</b> {Object.keys(infoCliente).length === 0 ? infoEmpresa.nome : infoCliente.username} <BsFillPencilFill/></p>
+                        <p><b> Nome:</b> {Object.keys(infoCliente).length === 0 ? infoEmpresa.nome : infoCliente.username} <BsFillPencilFill /></p>
 
                         <p style={{ display: 'flex' }}>{Object.keys(infoCliente).length === 0 ? <b>CNPJ: </b> : <b>CEP: </b>}  {Object.keys(infoCliente).length === 0 ? infoEmpresa.cnpj : endereco.cep}</p>
 
@@ -34,13 +63,27 @@ function Perfil() {
                     </div>
 
                     <div className={styles.containerInfoCEP}>
-                        {Object.keys(infoCliente).length === 0 ? 
-                        
-                        
-                        <div>teste</div> 
-                        
-                    
-                        :
+                        {Object.keys(infoCliente).length === 0 ?
+
+
+                            <div className={styles.containerColeta}>
+                                <h2>Adicionar ponto de coleta</h2>
+                                <div className={styles.formulario}>
+                                    <label htmlFor="materiaisReciclaveis">Materiais Recicláveis:</label>
+                                    <input type="text" id="materiaisReciclaveis" value={materiaisReciclaveis} onChange={e => setMateriaisReciclaveis(e.target.value)} />
+
+                                    <label htmlFor="horarioFuncionamento">Horário de Funcionamento:</label>
+                                    <input type="text" id="horarioFuncionamento" value={horarioFuncionamento} onChange={e => setHorarioFuncionamento(e.target.value)} />
+
+                                    <label htmlFor="endereco">Endereço:</label>
+                                    <input type="text" id="endereco" value={endereco1} onChange={e => setEndereco1(e.target.value)} />
+
+                                    <button onClick={enviarColeta}>Enviar</button>
+                                </div>
+                            </div>
+
+
+                            :
                             endereco && (
                                 <div className={styles.containerInfo2}>
                                     <p><b>Rua:</b> {endereco.logradouro}</p>

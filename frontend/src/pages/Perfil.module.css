@@ -44,3 +44,49 @@
     border-radius: 20px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
 }
+
+.containerColeta {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.formulario {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2%;
+}
+.formulario label {
+    font-size: 18px;
+    margin-bottom: 1%;
+    margin-left: 2%;
+}
+
+.formulario input {
+    width: 60%;
+    margin-bottom: 3%;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    height: 40px;
+    border: 1px solid #ccc;
+    padding-left: 1%;
+}
+.formulario input:focus {
+    outline: none;
+    border: 1px solid #000;
+}
+.formulario button {
+    margin: 5% auto 0 auto;
+    width: 30%;
+    height: 15%;
+    border-radius: 10px;
+    border: 1px solid rgba(51, 158, 51, 0.349);
+    box-shadow: 0px 5px 15px rgba(51, 158, 51, 0.726);
+    transition: all 0.3s ease;
+}
+.formulario button:hover {
+    box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.938);
+    border: none;
+    background-color: #ccc;
+    color: rgb(0, 0, 0);
+}

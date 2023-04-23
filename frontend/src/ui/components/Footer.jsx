@@ -26,8 +26,7 @@ function Footer() {
               Somos uma empresa que conecta pessoas que <br /> reciclam à empresas de reciclagem
               </p>
           </li>
-        </ul>
-     
+        </ul> 
       </div>
     </footer>
   );
