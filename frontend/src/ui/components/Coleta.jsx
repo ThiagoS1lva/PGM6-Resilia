@@ -41,6 +41,8 @@ function Coleta(props) {
       </Map>
     </div>
   );
+
+  
 }
 
 export default GoogleApiWrapper({

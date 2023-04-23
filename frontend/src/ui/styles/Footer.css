@@ -3,10 +3,10 @@ footer {
   background-color: #222;
   color: #fff;
   bottom: 0;
-  width: 100%;
   padding-bottom: 0.5%;
   padding-top: 0.5%;
-
+  margin: -25px; 
+  width: 100vw
 }
 .elements{
   display: flex;
@@ -16,4 +16,7 @@ footer {
 .copy {
   padding-top: 5.5%;
 }
-  
+.logo-img {
+  max-width: 100%;
+  max-height: 50px; /* altura máxima de 50 pixels, ajuste de acordo com suas necessidades */
+}

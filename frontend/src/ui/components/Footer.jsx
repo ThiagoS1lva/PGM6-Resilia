@@ -2,6 +2,8 @@
 import React from 'react';
 import '../styles/Footer.css';
 import { FaInstagram, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import logo from '../../../public/img/logo.png';
+
 
 function Footer() {
   return (
@@ -17,8 +19,10 @@ function Footer() {
           <li>
             <FaEnvelope />Recicla.ai@gmail.com
           </li>
-        </ul>   
-        <p className='copy' >&copy; 2023 - Recicla ai</p>
+        </ul>
+        <img src={logo} alt="Logo da Recicla.ai" className="logo-img" /> 
+        <p className='copy' >
+          &copy; 2023 - Recicla ai</p>
         <ul>
           <h3>Recicla.ai</h3>
           <li>

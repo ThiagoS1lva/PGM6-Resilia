@@ -46,7 +46,8 @@ function Menu() {
                     <Link to="/" style={{ textDecoration: 'none' }}><li>Página Inicial</li></Link>
                     <Link to="/sobre" style={{ textDecoration: 'none' }}><li>Sobre </li></Link>
                     <Link to="/contato" style={{ textDecoration: 'none' }}><li>Contato </li></Link>
-                    <Link to="/coleta" style={{ textDecoration: 'none' }}><li>Ponto de coleta </li></Link>
+                    <Link to="/coleta" style={{ textDecoration: 'none' }}><li>Ponto de coleta </li>
+                    </Link>
                     
                     {logado ? <Link to="/perfil"><li className={styles.img_perfil}><img width='100%' src={icone} /></li></Link> : ''}
                     

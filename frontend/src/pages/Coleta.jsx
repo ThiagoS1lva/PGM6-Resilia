@@ -8,7 +8,7 @@ function Coleta() {
     useEffect(() => {
       // Lógica para carregar os pontos de coleta
     }, []);
-  
+    
     return (
       <div className={styles.coleta}>
         <h1>Pontos de Coleta Reciclável</h1>
