@@ -104,7 +104,7 @@ function Login() {
                             <div className={styles.containerLogado}>
                                 <h2>Você está logado como:</h2>
                                 <h4>{Object.keys(infoCliente).length === 0 ? infoEmpresa.email : infoCliente.email}</h4>
-                                <Button style={{ width: "50%", margin: "0 auto" }} variant='danger' onClick={handleDeslogar}>Deslogar</Button>
+                                <Button style={{ width: "30%", margin: "0 auto" }} variant='danger' onClick={handleDeslogar}>Deslogar</Button>
                             </div>
 
                             :

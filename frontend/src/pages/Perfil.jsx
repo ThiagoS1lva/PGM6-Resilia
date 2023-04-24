@@ -3,10 +3,10 @@ import { Context } from '../contexts/AuthContext'
 import styles from './Perfil.module.css'
 import { BsPencilSquare } from 'react-icons/bs';
 import ListaPColeta from '../ui/components/ListaPColeta';
-import { AiFillCheckCircle } from 'react-icons/ai';
+import { Link } from 'react-router-dom';
 
 function Perfil() {
-    const { infoCliente, setInfoCliente, infoEmpresa, setInfoEmpresa } = useContext(Context);
+    const { isLogado, infoCliente, setInfoCliente, infoEmpresa, setInfoEmpresa } = useContext(Context);
     const [endereco, setEndereco] = useState(null)
     const [materiaisReciclaveis, setMateriaisReciclaveis] = useState('');
     const [horarioFuncionamento, setHorarioFuncionamento] = useState('');
@@ -17,12 +17,22 @@ function Perfil() {
     const handleEdit = () => {
         setEditing(true)
     }
+    const handleCancel = () =>{
+        setEditing(false)
+    }
+    const deslogar = () => {
+        isLogado(false)
+        setInfoCliente({})
+        setInfoEmpresa({})
+    }
+
     //pegar informações do cep
+    useEffect(() => {
     fetch(`https://viacep.com.br/ws/${isInfoClienteEmpty ? '01001000' : infoCliente.cep}/json/`)
         .then(response => response.json())
         .then(data => setEndereco(data))
         .catch(error => console.error(error));
-
+    },[infoCliente.cep])
 
     //Editar empresa e cliente
     const handleUpdate = async () => {
@@ -94,7 +104,8 @@ function Perfil() {
                     <div className={styles.containerInfo1}>
                         {editing ?
                             <>
-                                <form onSubmit={handleUpdate}>
+                                <h3>Editando:</h3>
+                                <form className={styles.formularioInfo} onSubmit={handleUpdate}>
                                     <label>
                                         Nome:
                                         <input type="text"
@@ -139,7 +150,10 @@ function Perfil() {
                                                 (e) => setInfoCliente({ ...infoCliente, password: e.target.value })
                                             } />
                                     </label>
-                                    <input type="submit" value="Salvar" />
+                                    <div style={{ display:'flex',justifyContent:'space-between', width:'80%'}}>
+                                        <input className={styles.btnInfo} type="submit" value="Salvar" />
+                                        <button className={styles.btnCancel} onClick={handleCancel}>Cancelar</button>
+                                    </div>
                                 </form>
 
                             </>
@@ -151,8 +165,8 @@ function Perfil() {
 
                                 <div><p><b>Telefone:</b> {isInfoClienteEmpty ? infoEmpresa.telefone : infoCliente.telefone}</p></div>
 
-                                <div><p><b>Email:</b> {isInfoClienteEmpty ? infoEmpresa.email : infoCliente.email}</p></div> 
-                                <button onClick={handleEdit}><BsPencilSquare /></button>
+                                <div><p><b>Email:</b> {isInfoClienteEmpty ? infoEmpresa.email : infoCliente.email}</p></div>
+                                <button className={styles.btnEdit} onClick={handleEdit}><BsPencilSquare /></button>
                             </>
                         }
                     </div>
@@ -166,13 +180,13 @@ function Perfil() {
                                 <p style={{ color: 'green' }}>{msg}</p>
                                 <div className={styles.formulario}>
                                     <label htmlFor="materiaisReciclaveis">Materiais Recicláveis:</label>
-                                    <input type="text" id="materiaisReciclaveis" value={materiaisReciclaveis} onChange={e => setMateriaisReciclaveis(e.target.value)} />
+                                    <input type="text" id="materiaisReciclaveis" value={materiaisReciclaveis} onChange={e => setMateriaisReciclaveis(e.target.value)} required/>
 
                                     <label htmlFor="horarioFuncionamento">Horário de Funcionamento:</label>
-                                    <input type="text" id="horarioFuncionamento" value={horarioFuncionamento} onChange={e => setHorarioFuncionamento(e.target.value)} />
+                                    <input type="text" id="horarioFuncionamento" value={horarioFuncionamento} onChange={e => setHorarioFuncionamento(e.target.value)} required/>
 
                                     <label htmlFor="endereco">Endereço:</label>
-                                    <input type="text" id="endereco" value={endereco1} onChange={e => setEndereco1(e.target.value)} />
+                                    <input type="text" id="endereco" value={endereco1} onChange={e => setEndereco1(e.target.value)} required/>
 
                                     <button onClick={enviarColeta}>Enviar</button>
                                 </div>
@@ -191,7 +205,7 @@ function Perfil() {
                         }
                     </div>
                 </div>
-
+                <Link to="/" className={styles.deslogar}><button onClick={deslogar}>Deslogar</button></Link>
             </div>
             {isInfoClienteEmpty ?
                 <ListaPColeta /> : ''}
