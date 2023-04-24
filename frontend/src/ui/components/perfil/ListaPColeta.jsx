@@ -1,6 +1,6 @@
-import styles from '../styles/ListaPColeta.module.css'
+import styles from '../../styles/ListaPColeta.module.css'
 import { useContext, useState, useEffect } from 'react';
-import { Context } from '../../contexts/AuthContext'
+import { Context } from '../../../contexts/AuthContext'
 import { BsPencilSquare } from 'react-icons/bs';
 import { CgRemoveR } from 'react-icons/cg';
 

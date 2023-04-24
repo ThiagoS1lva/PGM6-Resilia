@@ -2,7 +2,7 @@ import { useContext, useState, useEffect } from 'react';
 import { Context } from '../contexts/AuthContext'
 import styles from './Perfil.module.css'
 import { BsPencilSquare } from 'react-icons/bs';
-import ListaPColeta from '../ui/components/ListaPColeta';
+import ListaPColeta from '../ui/components/perfil/ListaPColeta';
 import { Link } from 'react-router-dom';
 
 function Perfil() {
