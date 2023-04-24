@@ -8,7 +8,7 @@ class ClienteController {
         app.get('/Cliente/id/:id', ClienteController.buscarPorID)
         app.post('/Cliente', ClienteController.inserir)
         app.post('/Cliente/login', ClienteController.login)
-        app.put('/Cliente/id/:id', ClienteController.atualizaCliente)
+        app.put('/Cliente/email/:email', ClienteController.atualizaCliente)
         app.delete('/Cliente/id/:id', ClienteController.deletarCliente)
     }
 
@@ -19,6 +19,7 @@ class ClienteController {
         res.status(200).send(clientes)
     }
 
+    
 
     // GET para buscar apenas 1 pela ID
     static async buscarPorID(req, res) {
@@ -90,7 +91,7 @@ class ClienteController {
                 res.status(400).send('O objeto está sem chave')
                 return
             }
-            const result = await ClienteDAO.atualizar(req.params.id, cliente)
+            const result = await ClienteDAO.atualizar(req.params.email, cliente)
             if (result.erro) {
                 res.status(500).send('Erro ao atualizar o cliente')
                 return

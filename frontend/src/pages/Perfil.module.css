@@ -22,6 +22,16 @@
     margin-bottom: 8%;
     border-radius: 20px;
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+    justify-content: space-between;
+    display: flex;
+}
+.containerInfo1 button {
+    border: none;
+    background-color: #080808;
+    width: 10%;
+    border-radius: 20px;
+    color: white;
+    height: 35px;
 }
 
 .containerInfoCEP {
