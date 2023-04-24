@@ -19,6 +19,9 @@ class ClienteDAO {
     });
   }
 
+  
+  
+
   //Buscar por email e senha
   static buscarPorEmailESenha(email, password) {
     const query = "SELECT * FROM Cliente WHERE email = ? AND password = ?";
@@ -75,13 +78,13 @@ class ClienteDAO {
   }
 
   // PUT  --  
-  static atualizar(id, cliente) {
+  static atualizar(email, cliente) {
     const query =
-      "UPDATE Cliente SET username = ?, email = ?, password = ?, telefone = ?, CEP = ? WHERE id = ?";
+      "UPDATE Cliente SET username = ?, email = ?, password = ?, telefone = ?, CEP = ? WHERE email = ?";
     return new Promise((resolve, reject) => {
       db.run(
         query,
-        [cliente.username, cliente.email, cliente.password, cliente.telefone, cliente.cep, id],
+        [cliente.username, cliente.email, cliente.password, cliente.telefone, cliente.cep, email],
         (err) => {
           if (err) {
             reject({

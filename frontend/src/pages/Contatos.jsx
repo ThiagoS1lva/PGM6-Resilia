@@ -10,7 +10,7 @@ import Steps from '../ui/components/Steps';
 // Hooks
 import { useForm } from '../hooks/useForm';
 import { useState } from 'react';
-import './Contatos.css';
+import styles from './Contatos.module.css'
 import { Prev } from 'react-bootstrap/esm/PageItem';
 
 
@@ -40,16 +40,16 @@ function Contatos() {
 
 
   return (
-    <div className='Contatos'>
-      <div className='header'>
+    <div className={styles.Contatos}>
+      <div className={styles.header}>
         <h2>Entre em contato conosco</h2>
-        <p className='p'>É sempre gratificante ver pessoas interessadas em nossos serviços e estamos animados para poder ajudá-lo da melhor forma possível. Por favor, preencha o formulário com as informações solicitadas e entraremos em contato em breve. Obrigado!</p>
+        <p className={styles.p}>É sempre gratificante ver pessoas interessadas em nossos serviços e estamos animados para poder ajudá-lo da melhor forma possível. Por favor, preencha o formulário com as informações solicitadas e entraremos em contato em breve. Obrigado!</p>
       </div>
-      <div className='form-container'>
+      <div className={styles.form_container}>
         <Steps currentStep={currentStep} />
         <form onSubmit={(e) => changeStep(currentStep + 1, e)}>
-          <div className="inputs-countainer"> {currentComponent}</div>
-          <div className="actions">
+          <div className={styles.inputs_countainer}> {currentComponent}</div>
+          <div className={styles.actions}>
             {!isFirstSetep && (
               <button type='button' onClick={() => changeStep(currentStep - 1)}>
                 <GrFormPrevious />

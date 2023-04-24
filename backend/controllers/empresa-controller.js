@@ -1,5 +1,5 @@
 import EmpresaDAO from '../DAO/empresaDAO.js'
-import Empresa from '../models/empresa.js'
+import Empresa from '../models/Empresa.js'
 
 
 class EmpresaController {
@@ -8,7 +8,7 @@ class EmpresaController {
         app.get('/Empresa/id/:id', EmpresaController.buscarPorID)
         app.post('/Empresa', EmpresaController.inserir)
         app.post('/Empresa/login', EmpresaController.login)
-        app.put('/Empresa/id/:id', EmpresaController.atualizaEmpresa)
+        app.put('/Empresa/cnpj/:cnpj', EmpresaController.atualizaEmpresa)
         app.delete('/Empresa/id/:id', EmpresaController.deletarEmpresa)
     }
 
@@ -29,6 +29,7 @@ class EmpresaController {
         }
         res.status(200).send(empresa)
     }
+
 
     //LOGIN
     static async login(req, res) {
@@ -73,7 +74,7 @@ class EmpresaController {
     }
 
 
-    // PUT - Editar um coletador
+    // PUT - Editar uma empresa
     static async atualizaEmpresa(req, res) {
         try {const empresa = new Empresa(
             req.body.nome,
@@ -90,7 +91,7 @@ class EmpresaController {
             res.status(400).send('O objeto está sem chave')
             return
         }
-        const result = await EmpresaDAO.atualizar(req.params.id, empresa)
+        const result = await EmpresaDAO.atualizar(req.params.cnpj, empresa)
         if (result.erro) {
             res.status(500).send('Erro ao atualizar o empresa')
             return

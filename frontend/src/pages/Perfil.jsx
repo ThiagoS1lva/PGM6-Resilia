@@ -1,27 +1,57 @@
 import { useContext, useState, useEffect } from 'react';
 import { Context } from '../contexts/AuthContext'
 import styles from './Perfil.module.css'
-import { BsFillPencilFill } from 'react-icons/bs';
+import { BsPencilSquare } from 'react-icons/bs';
 import ListaPColeta from '../ui/components/ListaPColeta';
-
+import { AiFillCheckCircle } from 'react-icons/ai';
 
 function Perfil() {
-    const { infoCliente, infoEmpresa } = useContext(Context);
+    const { infoCliente, setInfoCliente, infoEmpresa, setInfoEmpresa } = useContext(Context);
     const [endereco, setEndereco] = useState(null)
     const [materiaisReciclaveis, setMateriaisReciclaveis] = useState('');
     const [horarioFuncionamento, setHorarioFuncionamento] = useState('');
     const [endereco1, setEndereco1] = useState('');
     const [msg, setMsg] = useState('');
-
-
-
-    fetch(`https://viacep.com.br/ws/${Object.keys(infoCliente).length === 0 ? '01001000' : infoCliente.cep}/json/`)
+    const [editing, setEditing] = useState(false);
+    const isInfoClienteEmpty = Object.keys(infoCliente).length === 0;
+    const handleEdit = () => {
+        setEditing(true)
+    }
+    //pegar informações do cep
+    fetch(`https://viacep.com.br/ws/${isInfoClienteEmpty ? '01001000' : infoCliente.cep}/json/`)
         .then(response => response.json())
         .then(data => setEndereco(data))
         .catch(error => console.error(error));
 
 
+    //Editar empresa e cliente
+    const handleUpdate = async () => {
+        const updatedItem = {
+            [isInfoClienteEmpty ? "nome" : "username"]: isInfoClienteEmpty ? infoEmpresa.nome : infoCliente.username,
+            telefone: isInfoClienteEmpty ? infoEmpresa.telefone : infoCliente.telefone,
+            [isInfoClienteEmpty ? "cnpj" : "cep"]: isInfoClienteEmpty ? infoEmpresa.cnpj : infoCliente.cep,
+            email: isInfoClienteEmpty ? infoEmpresa.email : infoCliente.email,
+            password: isInfoClienteEmpty ? infoEmpresa.password : infoCliente.password,
+        };
+        const response = await fetch(`http://localhost:3000/${isInfoClienteEmpty ? 'Empresa/cnpj' : 'Cliente/email'}/${isInfoClienteEmpty ? infoEmpresa.cnpj : infoCliente.email}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(updatedItem),
+        });
 
+        if (!response.ok) {
+            setMsg('Erro ao atualizar item.');
+            return;
+        }
+
+        setMsg('Item atualizado com sucesso!');
+        setEditing(false);
+        window.location.reload()
+
+    };
+    //Cadastrar ponto de coleta
     const enviarColeta = async () => {
         try {
             const response = await fetch('http://localhost:3000/Coleta', {
@@ -34,7 +64,6 @@ function Perfil() {
                     cnpj: (infoEmpresa.cnpj).toString()
                 })
             });
-
             if (response.ok) {
                 setMsg('Ponto de coleta cadastrado com sucesso!');
                 setEndereco1('');
@@ -63,19 +92,73 @@ function Perfil() {
                 <h2>Informações Pessoais</h2>
                 <div className={styles.containerInfo}>
                     <div className={styles.containerInfo1}>
+                        {editing ?
+                            <>
+                                <form onSubmit={handleUpdate}>
+                                    <label>
+                                        Nome:
+                                        <input type="text"
+                                            value={isInfoClienteEmpty ? infoEmpresa.nome : infoCliente.username}
+                                            onChange={
+                                                isInfoClienteEmpty ?
+                                                    (e) => setInfoEmpresa({ ...infoEmpresa, nome: e.target.value }) :
+                                                    (e) => setInfoCliente({ ...infoCliente, username: e.target.value })
+                                            } />
+                                    </label>
+                                    <label>
+                                        Telefone:
+                                        <input type="tell"
+                                            value={isInfoClienteEmpty ? infoEmpresa.telefone : infoCliente.telefone}
+                                            onChange={isInfoClienteEmpty ?
+                                                (e) => setInfoEmpresa({ ...infoEmpresa, telefone: e.target.value }) :
+                                                (e) => setInfoCliente({ ...infoCliente, telefone: e.target.value })
+                                            } />
+                                    </label>
+                                    {isInfoClienteEmpty ? '' :
+                                        <label>CEP:
+                                            <input type='number'
+                                                value={infoCliente.cep}
+                                                onChange={
+                                                    (e) => setInfoCliente({ ...infoCliente, cep: e.target.value })
+                                                }
+                                            />
+                                        </label>}
+                                    {isInfoClienteEmpty ?
+                                        <label>Email:
+                                            <input type="email"
+                                                value={infoEmpresa.email}
+                                                onChange={
+                                                    (e) => setInfoEmpresa({ ...infoEmpresa, email: e.target.value })
+                                                } /> </label> : ''}
+                                    <label>
+                                        Senha:
+                                        <input type="text"
+                                            value={isInfoClienteEmpty ? infoEmpresa.password : infoCliente.password}
+                                            onChange={isInfoClienteEmpty ?
+                                                (e) => setInfoEmpresa({ ...infoEmpresa, password: e.target.value }) :
+                                                (e) => setInfoCliente({ ...infoCliente, password: e.target.value })
+                                            } />
+                                    </label>
+                                    <input type="submit" value="Salvar" />
+                                </form>
 
-                        <p><b> Nome:</b> {Object.keys(infoCliente).length === 0 ? infoEmpresa.nome : infoCliente.username} <BsFillPencilFill /></p>
+                            </>
+                            :
+                            <>
+                                <div><p><b> Nome:</b> {isInfoClienteEmpty ? infoEmpresa.nome : infoCliente.username}</p></div>
 
-                        <p style={{ display: 'flex' }}>{Object.keys(infoCliente).length === 0 ? <b>CNPJ: </b> : <b>CEP: </b>}  {Object.keys(infoCliente).length === 0 ? infoEmpresa.cnpj : infoCliente.cep}</p>
+                                <div><p>{isInfoClienteEmpty ? <b>CNPJ: </b> : <b>CEP: </b>}  {isInfoClienteEmpty ? infoEmpresa.cnpj : infoCliente.cep}</p></div>
 
-                        <p><b>Telefone:</b> {Object.keys(infoCliente).length === 0 ? infoEmpresa.telefone : infoCliente.telefone}</p>
+                                <div><p><b>Telefone:</b> {isInfoClienteEmpty ? infoEmpresa.telefone : infoCliente.telefone}</p></div>
 
-                        <p><b>Email:</b> {Object.keys(infoCliente).length === 0 ? infoEmpresa.email : infoCliente.email}</p>
-
+                                <div><p><b>Email:</b> {isInfoClienteEmpty ? infoEmpresa.email : infoCliente.email}</p></div> 
+                                <button onClick={handleEdit}><BsPencilSquare /></button>
+                            </>
+                        }
                     </div>
 
                     <div className={styles.containerInfoCEP}>
-                        {Object.keys(infoCliente).length === 0 ?
+                        {isInfoClienteEmpty ?
 
 
                             <div className={styles.containerColeta}>
@@ -106,13 +189,11 @@ function Perfil() {
                                 </div>
                             )
                         }
-
-
                     </div>
                 </div>
 
             </div>
-            {Object.keys(infoCliente).length === 0 ?
+            {isInfoClienteEmpty ?
                 <ListaPColeta /> : ''}
         </>
     );

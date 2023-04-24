@@ -33,6 +33,7 @@ class EmpresaDAO {
     });
   }
 
+  
 
   //LOGIN 
   static buscarPorEmailESenha(email, password) {
@@ -75,13 +76,13 @@ class EmpresaDAO {
   }
 
   // PUT  --  
-  static atualizar(id, empresa) {
+  static atualizar(cnpj, empresa) {
     const query =
-      "UPDATE empresa SET nome = ?, telefone = ?, CNPJ = ?, email = ?, password = ? WHERE id = ?";
+      "UPDATE empresa SET nome = ?, telefone = ?, CNPJ = ?, email = ?, password = ? WHERE CNPJ = ?";
     return new Promise((resolve, reject) => {
       db.run(
         query,
-        [empresa.nome, empresa.telefone, empresa.cnpj, empresa.email, empresa.password, id],
+        [empresa.nome, empresa.telefone, empresa.cnpj, empresa.email, empresa.password, cnpj],
         (err) => {
           if (err) {
             reject({
