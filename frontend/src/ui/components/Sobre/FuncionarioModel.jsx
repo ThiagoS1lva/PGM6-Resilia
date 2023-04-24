@@ -1,7 +1,7 @@
 // react, bootstrap,
 import Card from 'react-bootstrap/Card';
 
-function FuncionarioModels (props) {
+const FuncionarioModels = (props) => {
     //foto card 286x180
   return (
     <Card style={{ width: '18rem' }}>

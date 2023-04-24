@@ -1,5 +1,7 @@
 import FuncionarioModels from '../ui/components/Sobre/FuncionarioModel';
 import Caixa from '../ui/components/Sobre/CaixaTexto';
+import SectionWelcome from '../ui/components/Sobre/SectionWelcome';
+
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
@@ -20,6 +22,7 @@ const Sobre = () => {
     
   return (
       <>
+          <SectionWelcome/>
           <Caixa/>
           <Row>
             {funcionarios.map(funcionario => (
