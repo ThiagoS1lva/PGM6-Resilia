@@ -23,8 +23,20 @@
     margin-bottom: 4%;
     border-radius: 5px;
 }
+.formulario label {
+    font-family: bold;
+    font-size: 18px;
+    color:black ;
+}
 .formulario input {
     width: 89%;
+    border: none;
+    background-color: #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    padding: 2% 0 2% 2%;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.493);
+    margin-bottom: 2%;
 }
 .btns {
     display: flex;
