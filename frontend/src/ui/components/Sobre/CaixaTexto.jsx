@@ -3,7 +3,7 @@ import { useContext, useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import { BsPencilSquare, BsCheck2Square } from "react-icons/bs";
 import { Context } from '../../../contexts/AuthContext';
-
+import styles from '../../styles/CaixaTexto.module.css'
 
 // Componente de caixa
 const Caixa = () => {
@@ -62,8 +62,8 @@ const Caixa = () => {
     <Container>
       <Row className="my-4">
         <Col>
-          <div className="border p-3">
-            {modoEdicao ? (<Form.Control as="textarea" value={conteudo} onChange={handleChange} />) : (<div dangerouslySetInnerHTML={{ __html: conteudo }} />
+          <div className={styles.containerP}>
+            {modoEdicao ? (<Form.Control  style={{minHeight:'50vh', fontSize:'25px'}} as="textarea" value={conteudo} onChange={handleChange} />) : (<div dangerouslySetInnerHTML={{ __html: conteudo }} />
             )}
           </div>
         </Col>

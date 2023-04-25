@@ -1,27 +1,24 @@
-.sobre {
-    min-height: 95vh;
+.dad {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgb(240, 255, 244);;
+    width: 100%;
+    margin: 0 auto;
+    flex-direction: column;
+    background-color: rgba(160, 255, 160, 0.432);
 }
-
-.sesquerda {
-
+.container {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 5%;
+    width: 95%;
+    
 }
-
-.simg {
-
+.direita {
+    width: 50%;
+    margin: 10% auto 0;
 }
-
-.sdireita {
-
+.esquerda {
+    width: 50%;
 }
-
-.stitle {
-
-}
-
-.scaixa {
-
+.esquerda img {
+    width: 100%;
 }

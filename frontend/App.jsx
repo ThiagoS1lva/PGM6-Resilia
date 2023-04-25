@@ -10,11 +10,8 @@ import Contatos from './src/pages/Contatos';
 import Sobre from './src/pages/Sobre';
 import Coleta from './src/pages/Coleta'
 import EsquecerSenha from './src/pages/EsquecerSenha'
-<<<<<<< Updated upstream
 import Home from './src/pages/Home'
-=======
 import Admin from './src/pages/Admin'
->>>>>>> Stashed changes
 
 import { AuthProvider } from './src/contexts/AuthContext.jsx'
 
