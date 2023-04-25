@@ -22,3 +22,14 @@
 .esquerda img {
     width: 100%;
 }
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+    .direita {
+        width: 100%;
+    }
+    .esquerda {
+        width: 100%;
+    }
+}

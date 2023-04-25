@@ -1,10 +1,9 @@
 
 import SectionWelcome from '../ui/components/Sobre/SectionWelcome';
 import SectionSobre from '../ui/components/Sobre/SectionSobre';
-<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
-
+import FuncionarioModels from '../ui/components/Sobre/FuncionarioModel';
 
 const Sobre = () => {
   const [funcionarios, setFuncionarios] = useState([]);
@@ -35,6 +34,9 @@ const Sobre = () => {
                 rotafoto={funcionario.rotafoto}
                 nome={funcionario.nome}
                 cargo={funcionario.cargo}
+                lin = {funcionario.linkedin}
+                git = {funcionario.github}
+                insta = {funcionario.instagram}
               />
             </Col>
           ))}
@@ -43,20 +45,6 @@ const Sobre = () => {
 
 
     </>
-=======
-import SectionStaff from '../ui/components/Sobre/SectionStaff';
-
-
-const Sobre = () => {
-    
-  return (
-      <>
-          <SectionWelcome/>
-          <SectionSobre/>
-          <SectionStaff/>
-          
-      </>
->>>>>>> parent of 989bc35 (Add files via upload)
   );
 };
 
