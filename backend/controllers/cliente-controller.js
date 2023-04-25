@@ -9,6 +9,7 @@ class ClienteController {
         app.post('/Cliente', ClienteController.inserir)
         app.post('/Cliente/login', ClienteController.login)
         app.put('/Cliente/email/:email', ClienteController.atualizaCliente)
+        app.put('/Cliente/red/:email', ClienteController.atualizarSenha)
         app.delete('/Cliente/id/:id', ClienteController.deletarCliente)
     }
 
@@ -97,6 +98,21 @@ class ClienteController {
                 return
             }
             res.status(200).send({ "Mensagem": "Dados atualizados", "cliente: ": cliente })
+        } catch (err) {
+            console.log(err)
+            res.status(500).send('Erro ao atualizar o cliente')
+        }
+    }
+
+    static async atualizarSenha(req, res) {
+        try {
+            
+            const result = await ClienteDAO.atualizarSenha(req.params.email, req.body.password)
+            if (result.erro) {
+                res.status(500).send('Erro ao atualizar o cliente')
+                return
+            }
+            res.status(200).send({ "Mensagem": "Dados atualizados" })
         } catch (err) {
             console.log(err)
             res.status(500).send('Erro ao atualizar o cliente')

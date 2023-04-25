@@ -9,6 +9,7 @@ import Footer from './src/ui/components/Footer'
 import Contatos from './src/pages/Contatos';
 import Sobre from './src/pages/Sobre';
 import Coleta from './src/pages/Coleta'
+import EsquecerSenha from './src/pages/EsquecerSenha'
 
 import { AuthProvider } from './src/contexts/AuthContext.jsx'
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/cadastro" element={<Cadastro />} />
           <Route path="/coleta" element={<Coleta />} />
           <Route path="/sobre" element={<Sobre />}/>
+          <Route path="/Redefinir" element={<EsquecerSenha />}/>
           <Route/>
         </Routes>
         <Footer />

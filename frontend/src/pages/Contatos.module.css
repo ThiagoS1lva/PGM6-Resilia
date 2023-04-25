@@ -1,8 +1,12 @@
 .Contatos{
     padding: 2rem;
+    min-height: 80vh;
 }
 
-
+.p {
+    width: 60%;
+    margin: 0 auto;
+}
 /* Cabeçalho */
 .header{
     text-align: center;

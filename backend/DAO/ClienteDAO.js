@@ -100,6 +100,24 @@ class ClienteDAO {
     });
   }
 
+  static atualizarSenha(email, senha) {
+    const query = 'UPDATE Cliente SET password = ? WHERE email = ?';
+    return new Promise((resolve, reject) => {
+      db.run(query, [senha, email],
+        (err) => {
+          if (err) {
+            console.log(err)
+            reject({
+              mensagem : "Erro ao atualizar a senha",
+              erro:err
+            });
+          }
+          resolve({
+            mensagem: "cliente atualizado com sucesso"
+          })
+        })
+    })
+  }
 
   // DELETE  --  
   static deletar(id) {
