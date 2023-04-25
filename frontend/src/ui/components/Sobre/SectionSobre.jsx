@@ -1,16 +1,12 @@
 import Caixa from './CaixaTexto';
-<<<<<<< HEAD
 import styles from '../../styles/SectionSobre.module.css';
 import img from '../../../../public/teams.svg'
-=======
->>>>>>> a2b01a7c5e3a322cd8654ff3229e74e74ac92e29
 
 
 const SectionSobre = () => {
 
 
     return (
-<<<<<<< HEAD
         <div className={styles.sobre}>
             <div className={styles.sesquerda}>
                 
@@ -25,15 +21,6 @@ const SectionSobre = () => {
                 <Caixa className={styles.scaixa}/>
             </div>
         </div>
-=======
-        <>
-            
-                <Caixa/>
-                <div>
-                    
-                </div>
-        </>
->>>>>>> a2b01a7c5e3a322cd8654ff3229e74e74ac92e29
     );
 };
 
