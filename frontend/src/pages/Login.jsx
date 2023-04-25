@@ -96,7 +96,7 @@ function Login() {
     }
 
     return (
-        <>
+        <div className={styles.dad}>
             <div className={styles.container}>
                 {cliente ?
                     <>
@@ -180,7 +180,7 @@ function Login() {
                     <LoginCarousels />
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
