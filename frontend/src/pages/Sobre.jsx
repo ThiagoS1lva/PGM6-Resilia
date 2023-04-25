@@ -4,6 +4,7 @@ import SectionSobre from '../ui/components/Sobre/SectionSobre';
 import { useState, useEffect } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 import FuncionarioModels from '../ui/components/Sobre/FuncionarioModel';
+import SectionContactUs from '../ui/components/Sobre/SectionContactUs';
 
 const Sobre = () => {
   const [funcionarios, setFuncionarios] = useState([]);
@@ -42,7 +43,7 @@ const Sobre = () => {
           ))}
         </Row>
       </Container>
-
+      <SectionContactUs />
 
     </>
   );
