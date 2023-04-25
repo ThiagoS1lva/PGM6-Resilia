@@ -1,27 +1,30 @@
-import { Button, Container, Jumbotron } from 'react-bootstrap';
+import { Button, Container } from 'react-bootstrap';
+import { HashLink } from 'react-router-hash-link';
+import img from '../../../../public/Recycling.gif';
+import styles from '../../styles/SectionWelcome.module.css';
 
-const SectionWelcome = () => {
+
+const SectionWelcome = ({ sobreRef }) => {
+
+
     return (
         <>
-            <Jumbotron 
-                fluid 
-                className="d-flex align-items-center justify-content-center text-center"
-                style={{
-                    backgroundImage: `url(${backgroundImage})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    minHeight: '100vh',
-                    marginBottom: 0,
-                    color: '#fff',
-                }}
+            <div className={styles.dad}
             >
-            <Container>
-                <h1>NÓS SOMOS TAL EMPRESA</h1>
-                <Button variant="primary" size="lg" href="#next-section">
-                Scroll Down
-                </Button>
-            </Container>
-            </Jumbotron>
+                    <Container className={styles.container}>
+                        <div className={styles.esquerda}>
+                            <div className={styles.title}><h1>Um jeito mais</h1> <h1>inteligente e consciente</h1> <h1>de lidar com os resíduos.</h1></div>
+                            <HashLink to={sobreRef} smooth duration={1000}>
+                                <Button className={styles.btn} variant="success" size="lg" >
+                                    NOS CONHEÇA
+                                </Button>
+                            </HashLink>
+                        </div>
+                        <div className={styles.direita}>
+                            <img className={styles.gif1} style={{width: '500px', height: '500px'}} src={img}/>
+                        </div>
+                    </Container>
+            </div>
         </>
     );
 };

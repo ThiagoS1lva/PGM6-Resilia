@@ -1,7 +1,6 @@
 import FuncionarioModels from '../ui/components/Sobre/FuncionarioModel';
-import Caixa from '../ui/components/Sobre/CaixaTexto';
-//import SectionWelcome from '../ui/components/Sobre/SectionWelcome';
-
+import SectionWelcome from '../ui/components/Sobre/SectionWelcome';
+import SectionSobre from '../ui/components/Sobre/SectionSobre';
 import { useState, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
 
@@ -22,8 +21,8 @@ const Sobre = () => {
     
   return (
       <>
-          {/*<SectionWelcome/>*/}
-          <Caixa/>
+          <SectionWelcome/>
+          <SectionSobre/>
           <Row>
             {funcionarios.map(funcionario => (
               <Col key={funcionario.id} sm={6} md={4} >

@@ -1,0 +1,35 @@
+.dad {
+    min-height: 95vh;
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    display: flex;
+    width: auto;
+    height: 60vh;
+}
+
+.esquerda {
+   position: relative;
+   right: 230px;
+}
+
+.title {
+    
+}
+
+.btn {
+    position: relative;
+    top: 170px;
+}
+.direita {
+  
+}
+
+.gif1 {
+    position: relative;
+    bottom: 60px;
+    left: 190px;
+}
+
