@@ -1,0 +1,11 @@
+.caixa {
+    min-height: 50vh;
+    min-width: 30vw;
+    background-color: white;
+}
+
+.sbtn {
+    position: relative;
+    bottom: 180%;
+    right: 1%;
+}
