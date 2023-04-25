@@ -1,0 +1,21 @@
+.gallery {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.GalleryImageWrapper {
+  margin: 0 10px;
+  text-align: center;
+}
+
+.GalleryImage {
+  width: 300px;
+  height: auto;
+}
+
+.imageText {
+  margin-top: 10px;
+  text-align: center;
+}
