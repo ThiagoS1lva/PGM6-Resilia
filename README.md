@@ -40,3 +40,12 @@ O controlador é responsável por receber as solicitações do usuário, process
 
 O DAO é responsável pela comunicação com o banco de dados. Ele contém todos os métodos necessários para realizar operações de CRUD (Create, Read, Update, Delete) no banco de dados.
 
+ ## 🧑💻 EQUIPE
+---
+⌨️ com 💖 por:<br>
+               Eliseu Machado 😊
+               <br>  Karolayne Rodrigues  😊
+               <br> Pedro Nicacio 😊
+               <br>  Suzana Barbosa 😊
+               <br> Thiago Oliveira 😊   
+
