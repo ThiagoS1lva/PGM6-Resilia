@@ -6,6 +6,7 @@ class ClienteController {
     static rotas(app) {
         app.get('/Clientes', ClienteController.listar)
         app.get('/Cliente/id/:id', ClienteController.buscarPorID)
+        app.get('/Cliente/email/:email', ClienteController.buscarPorEmail)
         app.post('/Cliente', ClienteController.inserir)
         app.post('/Cliente/login', ClienteController.login)
         app.put('/Cliente/email/:email', ClienteController.atualizaCliente)
@@ -31,6 +32,19 @@ class ClienteController {
         }
         res.status(200).send(cliente)
     }
+
+    // GET para buscar apenas 1 pela EMAIL
+    static async buscarPorEmail(req, res) {
+        const cliente = await ClienteDAO.buscarPorEmail(req.params.email)
+        if (!cliente) {
+            res.status(404).send("Cliente não encontrado")
+            return
+        }
+        res.status(200).send(cliente)
+    }
+
+
+
 
     //LOGIN
     static async login(req, res) {
@@ -106,7 +120,6 @@ class ClienteController {
 
     static async atualizarSenha(req, res) {
         try {
-            
             const result = await ClienteDAO.atualizarSenha(req.params.email, req.body.password)
             if (result.erro) {
                 res.status(500).send('Erro ao atualizar o cliente')

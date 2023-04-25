@@ -94,8 +94,6 @@ function Perfil() {
     };
 
 
-
-
     return (
         <>
             <div className={styles.container}>
@@ -206,6 +204,11 @@ function Perfil() {
                     </div>
                 </div>
                 <Link to="/" className={styles.deslogar}><button onClick={deslogar}>Deslogar</button></Link>
+                {infoCliente.email === "admin@admin" ?
+                 <Link to="/admin" className={styles.admin}><button>Admin</button></Link> 
+                 : 
+                 ''}
+                
             </div>
             {isInfoClienteEmpty ?
                 <ListaPColeta /> : ''}

@@ -60,6 +60,18 @@ class ClienteDAO {
     });
   }
 
+  static buscarPorEmail(email) {
+    const query = "SELECT * FROM Cliente WHERE email = ?";
+    return new Promise((resolve, reject) => {
+      db.get(query, [email], (err, row) => {
+        if (err) {
+          reject(false);
+        }
+        resolve(row);
+      });
+    });
+  }
+
 
   // POST
   static inserir(cliente) {

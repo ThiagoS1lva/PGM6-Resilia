@@ -6,13 +6,15 @@ class EmpresaController {
     static rotas(app) {
         app.get('/Empresas', EmpresaController.listar)
         app.get('/Empresa/id/:id', EmpresaController.buscarPorID)
+        app.get('/Empresa/email/:email', EmpresaController.buscarPorEmail)
         app.post('/Empresa', EmpresaController.inserir)
         app.post('/Empresa/login', EmpresaController.login)
         app.put('/Empresa/cnpj/:cnpj', EmpresaController.atualizaEmpresa)
+        app.put('/Empresa/red/:email', EmpresaController.atualizarSenha)
         app.delete('/Empresa/id/:id', EmpresaController.deletarEmpresa)
     }
 
-    
+
     // GET para listar todos
     static async listar(req, res) {
         const empresas = await EmpresaDAO.listar()
@@ -30,6 +32,15 @@ class EmpresaController {
         res.status(200).send(empresa)
     }
 
+    // GET para buscar apenas 1 pela EMAIL
+    static async buscarPorEmail(req, res) {
+        const empresa = await EmpresaDAO.buscarPorEmail(req.params.email)
+        if (!empresa) {
+            res.status(404).send("empresa não encontrado")
+            return
+        }
+        res.status(200).send(empresa)
+    }
 
     //LOGIN
     static async login(req, res) {
@@ -45,7 +56,7 @@ class EmpresaController {
                 res.cookie('token', token);
                 res.send(empresa);
             }
-        } catch(err) {
+        } catch (err) {
             console.log(err);
             res.status(500).send('Erro ao realizar login');
         }
@@ -76,32 +87,47 @@ class EmpresaController {
 
     // PUT - Editar uma empresa
     static async atualizaEmpresa(req, res) {
-        try {const empresa = new Empresa(
-            req.body.nome,
-            req.body.telefone,
-            req.body.cnpj,
-            req.body.email,
-            req.body.password
-        )
-        if  (!empresa.nome || !empresa.telefone || !empresa.cnpj || !empresa.email || !empresa.password) {
-            res.status(400).send("Precisa passar todas as informações")
-            return
-        }
-        if (!Object.keys(empresa).length) {
-            res.status(400).send('O objeto está sem chave')
-            return
-        }
-        const result = await EmpresaDAO.atualizar(req.params.cnpj, empresa)
-        if (result.erro) {
+        try {
+            const empresa = new Empresa(
+                req.body.nome,
+                req.body.telefone,
+                req.body.cnpj,
+                req.body.email,
+                req.body.password
+            )
+            if (!empresa.nome || !empresa.telefone || !empresa.cnpj || !empresa.email || !empresa.password) {
+                res.status(400).send("Precisa passar todas as informações")
+                return
+            }
+            if (!Object.keys(empresa).length) {
+                res.status(400).send('O objeto está sem chave')
+                return
+            }
+            const result = await EmpresaDAO.atualizar(req.params.cnpj, empresa)
+            if (result.erro) {
+                res.status(500).send('Erro ao atualizar o empresa')
+                return
+            }
+            res.status(200).send({ "Mensagem": "Dados atualizados", "empresa: ": empresa })
+        } catch (err) {
+            console.log(err)
             res.status(500).send('Erro ao atualizar o empresa')
-            return
         }
-        res.status(200).send({ "Mensagem": "Dados atualizados", "empresa: ": empresa })
-    } catch (err) {
-        console.log(err)
-        res.status(500).send('Erro ao atualizar o empresa')
-    }}
+    }
 
+    static async atualizarSenha(req, res) {
+        try {
+            const result = await EmpresaDAO.atualizarSenha(req.params.email, req.body.password)
+            if (result.erro) {
+                res.status(500).send('Erro ao atualizar o empresa')
+                return
+            }
+            res.status(200).send({ "mensagem": "Dados atualizados" })
+        } catch (err) {
+            console.log(err)
+            res.status(500).send('Erro ao atualizar o empresa')
+        }
+    }
 
     // DELETE - Deletar 1 empresa
     static async deletarEmpresa(req, res) {

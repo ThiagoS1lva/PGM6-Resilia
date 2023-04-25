@@ -1,6 +1,6 @@
 // Importa o db.js para poder usar o banco de dados simulado
-import db from "../infra/db.js" ;
-import Empresa from "../models/Empresa.js" ;
+import db from "../infra/db.js";
+import Empresa from "../models/Empresa.js";
 
 
 
@@ -33,7 +33,20 @@ class EmpresaDAO {
     });
   }
 
-  
+  //Buscar por email
+  static buscarPorEmail(email) {
+    const query = "SELECT * FROM empresa WHERE email = ?";
+    return new Promise((resolve, reject) => {
+      db.get(query, [email], (err, row) => {
+        if (err) {
+          reject(false);
+        }
+        resolve(row);
+      });
+    });
+  }
+
+
 
   //LOGIN 
   static buscarPorEmailESenha(email, password) {
@@ -46,7 +59,7 @@ class EmpresaDAO {
         } else if (!row) {
           resolve(null);
         } else {
-          const empresa = new Empresa(row.nome,row.telefone, row.CNPJ ,row.email, row.password);
+          const empresa = new Empresa(row.nome, row.telefone, row.CNPJ, row.email, row.password);
           empresa.nome = row.nome;
           empresa.telefone = row.telefone;
           empresa.cnpj = row.CNPJ;
@@ -85,6 +98,25 @@ class EmpresaDAO {
         [empresa.nome, empresa.telefone, empresa.cnpj, empresa.email, empresa.password, cnpj],
         (err) => {
           if (err) {
+            reject({
+              mensagem: "Erro ao atualizar o empresa",
+              erro: err,
+            });
+          }
+          resolve({
+            mensagem: "empresa atualizado com sucesso"
+          });
+        }
+      );
+    });
+  }
+  static atualizarSenha(email, senha) {
+    const query = "UPDATE empresa SET password = ? WHERE email = ?";
+    return new Promise((resolve, reject) => {
+      db.run(query,[senha, email],
+        (err) => {
+          if (err) {
+            console.log(err)
             reject({
               mensagem: "Erro ao atualizar o empresa",
               erro: err,
