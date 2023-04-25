@@ -3,7 +3,13 @@ import { useContext, useState, useEffect } from 'react';
 import { Container, Row, Col, Button, Form } from 'react-bootstrap';
 import { BsPencilSquare, BsCheck2Square } from "react-icons/bs";
 import { Context } from '../../../contexts/AuthContext';
+<<<<<<< HEAD
 import styles from '../../styles/CaixaTexto.module.css'
+=======
+
+import styles from '../../styles/CaixaTexto.module.css';
+
+>>>>>>> parent of 989bc35 (Add files via upload)
 
 // Componente de caixa
 const Caixa = () => {
@@ -59,11 +65,16 @@ const Caixa = () => {
 
   // Renderiza o componente
   return (
-    <Container>
+    <Container className={styles.caixa}>
       <Row className="my-4">
         <Col>
+<<<<<<< HEAD
           <div className={styles.containerP}>
             {modoEdicao ? (<Form.Control  style={{minHeight:'50vh', fontSize:'25px'}} as="textarea" value={conteudo} onChange={handleChange} />) : (<div dangerouslySetInnerHTML={{ __html: conteudo }} />
+=======
+          <div className="border p-3">
+            {modoEdicao ? (<Form.Control as="textarea" value={conteudo} onChange={handleChange} />) : (<div  dangerouslySetInnerHTML={{ __html: conteudo }} />
+>>>>>>> parent of 989bc35 (Add files via upload)
             )}
           </div>
         </Col>
@@ -72,11 +83,11 @@ const Caixa = () => {
         <Row className="my-4">
           <Col className="d-flex justify-content-end">
             {modoEdicao ? (
-              <Button variant="success" onClick={atualizarConteudo}>
+              <Button className={styles.sbtn}variant="success" onClick={atualizarConteudo}>
                 <BsCheck2Square/>
               </Button>
             ) : (
-              <Button variant="primary" onClick={handleClick}>
+              <Button className={styles.sbtn}variant="primary" onClick={handleClick}>
                 <BsPencilSquare/>
               </Button>
             )}

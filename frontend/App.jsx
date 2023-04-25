@@ -10,8 +10,11 @@ import Contatos from './src/pages/Contatos';
 import Sobre from './src/pages/Sobre';
 import Coleta from './src/pages/Coleta'
 import EsquecerSenha from './src/pages/EsquecerSenha'
+<<<<<<< HEAD
 import Home from './src/pages/Home'
 import Admin from './src/pages/Admin'
+=======
+>>>>>>> parent of 989bc35 (Add files via upload)
 
 import { AuthProvider } from './src/contexts/AuthContext.jsx'
 
@@ -22,7 +25,6 @@ function App() {
       <AuthProvider>
         <Menu />
         <Routes>
-          <Route path="/" element={<Home />} />
           <Route path="perfil" element={<Perfil />} />
           <Route path="/login" element={<Login />} />
           <Route path="/contato" element={<Contatos />} />

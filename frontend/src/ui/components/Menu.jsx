@@ -43,7 +43,7 @@ function Menu() {
                     <Link to="/"><img className={styles.img_logo} src={logo} width='50%' /></Link>
                 </div>
                 <ul className={`ul ${isTransparent ? "teste" : ""}`}>
-                <Link to="/" style={{ textDecoration: 'none' }}><li>Página Inicial</li></Link>
+                    <Link to="/" style={{ textDecoration: 'none' }}><li>Página Inicial</li></Link>
                     <Link to="/sobre" style={{ textDecoration: 'none' }}><li>Sobre </li></Link>
                     <Link to="/contato" style={{ textDecoration: 'none' }}><li>Contato </li></Link>
                     <Link to="/coleta" style={{ textDecoration: 'none' }}><li>Ponto de coleta </li>
@@ -68,7 +68,7 @@ function Menu() {
                 <>
                     <div className={styles.dropdown}>
                         <div className={styles.dropdownMenu}>
-                        <Link to="/" className={styles.link} onClick={toggleMenu}><li>Página Inicial</li></Link>
+                            <Link to="/" className={styles.link} onClick={toggleMenu}><li>Página Inicial</li></Link>
                             <Link to="/sobre" className={styles.link} onClick={toggleMenu}><li>Sobre</li></Link>
                             <Link to="/contato" className={styles.link} onClick={toggleMenu}><li>Contato</li></Link>
                             <Link to="/coleta" className={styles.link} onClick={toggleMenu}><li>Pontos de coleta</li></Link>

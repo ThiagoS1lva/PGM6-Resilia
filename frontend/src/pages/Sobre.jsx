@@ -1,6 +1,7 @@
-import FuncionarioModels from '../ui/components/Sobre/FuncionarioModel';
+
 import SectionWelcome from '../ui/components/Sobre/SectionWelcome';
 import SectionSobre from '../ui/components/Sobre/SectionSobre';
+<<<<<<< HEAD
 import { useState, useEffect } from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 
@@ -42,6 +43,20 @@ const Sobre = () => {
 
 
     </>
+=======
+import SectionStaff from '../ui/components/Sobre/SectionStaff';
+
+
+const Sobre = () => {
+    
+  return (
+      <>
+          <SectionWelcome/>
+          <SectionSobre/>
+          <SectionStaff/>
+          
+      </>
+>>>>>>> parent of 989bc35 (Add files via upload)
   );
 };
 
