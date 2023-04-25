@@ -2,10 +2,10 @@
 import { GrFormNext, GrFormPrevious } from 'react-icons/gr'
 import { FiSend } from 'react-icons/fi'
 // importes dos componetes para gerenciamento do hook
-import UserForm from '../ui/components/UserFrom';
-import ReviewForm from '../ui/components/ReviewFrom';
-import Thanks from '../ui/components/Thanks';
-import Steps from '../ui/components/Steps';
+import UserForm from '../ui/components/contato/UserFrom';
+import ReviewForm from '../ui/components/contato/ReviewFrom';
+import Thanks from '../ui/components/contato/Thanks';
+import Steps from '../ui/components/contato/Steps';
 
 // Hooks
 import { useForm } from '../hooks/useForm';

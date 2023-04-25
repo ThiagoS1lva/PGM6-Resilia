@@ -104,7 +104,7 @@ function Login() {
                             <div className={styles.containerLogado}>
                                 <h2>Você está logado como:</h2>
                                 <h4>{Object.keys(infoCliente).length === 0 ? infoEmpresa.email : infoCliente.email}</h4>
-                                <Button style={{ width: "50%", margin: "0 auto" }} variant='danger' onClick={handleDeslogar}>Deslogar</Button>
+                                <Button style={{ width: "30%", margin: "0 auto" }} variant='danger' onClick={handleDeslogar}>Deslogar</Button>
                             </div>
 
                             :
@@ -123,7 +123,7 @@ function Login() {
                                     <input type="email" placeholder="Digite seu email" value={email} onChange={(event) => setEmail(event.target.value)} />
                                     <div className={styles.label}>
                                         <label>Digite sua senha</label>
-                                        <Link to="/"><label style={{cursor: "pointer"}}>Esqueceu sua senha?</label></Link>
+                                        <Link to="/Redefinir"><label style={{cursor: "pointer"}}>Esqueceu sua senha?</label></Link>
                                     </div>
                                     <input type="password" placeholder="Digite sua senha" value={password} onChange={(event) => setSenha(event.target.value)} />
                                     {errorMsg && <h5 className={styles.errorMsg}>{errorMsg}</h5>}
@@ -159,7 +159,7 @@ function Login() {
                                     <input type="email" placeholder="Digite seu email" value={email} onChange={(event) => setEmail(event.target.value)} />
                                     <div className={styles.label}>
                                         <label>Digite sua senha</label>
-                                        <Link to="/"><label style={{
+                                        <Link to="/Redefinir"><label style={{
                                             cursor
                                                 : "pointer"
                                         }}>Esqueceu sua senha?</label></Link>

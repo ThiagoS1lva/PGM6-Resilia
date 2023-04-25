@@ -54,10 +54,9 @@ class ColetaController {
             const coleta = new Coleta(
                 req.body.materiais_reciclaveis,
                 req.body.horario_funcionamento,
-                req.body.endereco,
-                req.body.cnpj
+                req.body.endereco
             )
-            if (!coleta.materiais_reciclaveis || !coleta.horario_funcionamento || !coleta.endereco || !coleta.cnpj) {
+            if (!coleta.materiais_reciclaveis || !coleta.horario_funcionamento || !coleta.endereco) {
                 res.status(400).send("Precisa passar todas as informações")
                 return
             }

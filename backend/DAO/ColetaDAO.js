@@ -61,11 +61,11 @@ class ColetaDAO {
     //ATUALIZAR
     static atualizar(id, coleta) {
     const query =
-        "UPDATE ponto_coleta SET materiais_reciclaveis = ?, horario_funcionamento = ?, endereco = ?, cnpj = ? WHERE id = ?";
+        "UPDATE ponto_coleta SET materiais_reciclaveis = ?, horario_funcionamento = ?, endereco = ? WHERE id = ?";
     return new Promise((resolve, reject) => {
         db.run(
             query,
-            [coleta.materiais_reciclaveis, coleta.horario_funcionamento, coleta.endereco, coleta.cnpj, id],
+            [coleta.materiais_reciclaveis, coleta.horario_funcionamento, coleta.endereco, id],
             (err) => {
                 if (err) {
                     reject({

@@ -47,7 +47,7 @@ const ReviewForm = ({ data, updateFieldHandler }) => {
         </label>
       </div>
       <div className="form-control">
-        <label htmlFor="comment">Deixe sua mensagem</label>
+        <label htmlFor="comment"></label>
         <textarea name="comment" id="comment" placeholder='Digite sua mensagem' 
         required
           value={data.comment || ""}

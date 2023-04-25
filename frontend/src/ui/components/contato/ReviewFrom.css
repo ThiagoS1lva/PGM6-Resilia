@@ -2,7 +2,10 @@
 .form-control.score-container {
     flex-direction: row;
     gap: 2rem;
+    width: 100%;
+    display: flex;
     justify-content: center;
+    border: none;
 }
 .score-container{
     font-size: 1.6rem;
@@ -36,6 +39,9 @@
     color: #777;
     font-size: 0.9rem;  
 }
+.form-control {
+    border: none;
+}
 .form-control input,
 textarea{
     padding: .6rem;
@@ -45,4 +51,5 @@ textarea{
 }
 .form-control textarea{
     height: 120px;
+    width: 400px;
 }
