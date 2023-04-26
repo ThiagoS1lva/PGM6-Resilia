@@ -11,6 +11,7 @@ import Sobre from './src/pages/Sobre';
 import Coleta from './src/pages/Coleta'
 import EsquecerSenha from './src/pages/EsquecerSenha'
 import Admin from './src/pages/Admin'
+import Home from './src/pages/Home'
 
 import { AuthProvider } from './src/contexts/AuthContext.jsx'
 
@@ -29,6 +30,7 @@ function App() {
           <Route path="/sobre" element={<Sobre />}/>
           <Route path="/Redefinir" element={<EsquecerSenha />}/>
           <Route path="/admin" element={<Admin />}/>
+          <Route path="/" element={<Home/>}/>
           <Route/>
         </Routes>
         <Footer />
