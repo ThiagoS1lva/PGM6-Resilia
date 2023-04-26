@@ -30,7 +30,7 @@ O modelo representa os dados da aplicação e inclui todas as operações de ace
 
 ### Visualização
 
-A visualização é responsável pela interface do usuário.
+Hospedagem do site : https://reclicla-ai.vercel.app/
 
 ### Controlador
 
